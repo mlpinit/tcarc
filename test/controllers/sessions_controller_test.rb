@@ -7,8 +7,14 @@ class SessionsControllerTest < ActionController::TestCase
     assert redirect_to: root_path
   end
 
-  test "unsuccessful signin" do
+  test "unsuccessful signin - wrong password" do
     post :create, { email: "john@test.com", password: "bad passowrd" }
+    assert_equal flash[:error], "Wrong password/email combination."
+    assert render: :new
+  end
+
+  test "unsuccessful signin - non-xistent user" do
+    post :create, { email: "", password: "" }
     assert_equal flash[:error], "Wrong password/email combination."
     assert render: :new
   end
