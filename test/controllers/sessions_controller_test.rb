@@ -19,6 +19,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_select "form"
     assert_select "input#email"
     assert_select "input#password"
+    assert_select "input.btn-success"
     assert render: :new
   end
 
