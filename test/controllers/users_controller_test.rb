@@ -11,6 +11,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_select "input#user_email"
     assert_select "input#user_password"
     assert_select "input#user_password_confirmation"
+    assert_select "input.btn-success"
     assert render: :new
   end
 
