@@ -1,0 +1,7 @@
+<% @title = "Sign In" %>
+
+<%= form_tag signin_path do %>
+  <%= text_field_tag :email %>
+  <%= text_field_tag :password %>
+  <%= submit_tag %>
+<% end %>
