@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+road:
+  x: 0
+  y: 0
+  north: "road"
+  south: "road"
+  west: "road"
+  east: "road"
+  monestary: false
+  end_road: false
+
+castle:
+  x: 2
+  y: 2
+  north: "castle"
+  south: "castle"
+  west: "castle"
+  east: "castle"
+  monestary: false
+  end_road: false
+
+field:
+  x: 4
+  y: 4
+  north: "field"
+  south: "field"
+  west: "field"
+  east: "field"
+  monestary: false
+  end_road: false
