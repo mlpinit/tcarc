@@ -1,26 +1,26 @@
 class Tile < ActiveRecord::Base
 
-  validate :road_east_to_west, :road_west_to_east, :road_north_to_south, :road_south_to_north
+  validate :east_to_west, :west_to_east, :north_to_south, :south_to_north
 
-  def road_east_to_west
+  def east_to_west
     if east_neighbour && self.east != east_neighbour.west
       errors.add(:east, "#{east} cannot be attached to west non-#{east}")
     end
   end
 
-  def road_west_to_east
+  def west_to_east
     if west_neighbour && self.west != west_neighbour.east
       errors.add(:west, "#{west} cannot be attached to east non-#{west}")
     end
   end
 
-  def road_north_to_south
+  def north_to_south
     if north_neighbour && self.north != north_neighbour.south
       errors.add(:north, "#{north} cannot be attached to south non-#{north}")
     end
   end
 
-  def road_south_to_north
+  def south_to_north
     if south_neighbour && self.south != south_neighbour.north
       errors.add(:south, "#{south} cannot be attached to north non-#{south}")
     end
