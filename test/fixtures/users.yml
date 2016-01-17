@@ -1,5 +1,5 @@
 john:
-  name: "john"
+  username: "john"
   email: "john@test.com"
   # password digest form password: 1234acbd
   password_digest: $2a$10$gdeIs0JMrbQEfj/ezRS60.RNrgiqT8H1s7Ngp2lUKTd/WD.zj/x9W
