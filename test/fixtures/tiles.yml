@@ -9,6 +9,7 @@ road:
   east: "road"
   monestary: false
   end_road: false
+  start: true
 
 castle:
   x: 2
@@ -19,6 +20,7 @@ castle:
   east: "castle"
   monestary: false
   end_road: false
+  start: true
 
 field:
   x: 4
@@ -29,3 +31,4 @@ field:
   east: "field"
   monestary: false
   end_road: false
+  start: true

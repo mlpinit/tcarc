@@ -1,6 +1,17 @@
 class Tile < ActiveRecord::Base
 
-  validate :east_to_west, :west_to_east, :north_to_south, :south_to_north
+  validate :east_to_west, :west_to_east, :north_to_south, :south_to_north, :start_tile
+  validates :north, :south, :west, :east, presence: true
+
+  def start_tile
+    neighbours = [:east, :west, :south, :north].map do |direction|
+      send("#{direction}_neighbour")
+    end.compact
+
+    if neighbours.empty? && !start
+      errors.add(:base, "Can't place non-starting tile as a standalone tile.")
+    end
+  end
 
   def east_to_west
     if east_neighbour && self.east != east_neighbour.west
