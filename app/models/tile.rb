@@ -5,6 +5,7 @@ class Tile < ActiveRecord::Base
 
   validate :east_to_west, :west_to_east, :north_to_south, :south_to_north, :start_tile
   validates :north, :south, :west, :east, presence: true
+  validates :game_id, presence: true
 
   def start_tile
     neighbours = [:east, :west, :south, :north].map do |direction|
