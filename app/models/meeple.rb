@@ -3,7 +3,7 @@ class Meeple < ActiveRecord::Base
   belongs_to :tile
   belongs_to :game
 
-  validate :last_tile_placement, :no_field_placement, :overplacement
+  validate :last_tile_placement, :no_field_placement, :road_overplacement
 
   def last_tile_placement
     if game.last_tile != tile
@@ -17,7 +17,7 @@ class Meeple < ActiveRecord::Base
     end
   end
 
-  def overplacement
+  def road_overplacement
     meeple_composite_keys_sql_ready = ConnectedRoads
       .new(game_tiles: game.tiles, meeple: self)
       .meeple_composite_keys_sql_ready
