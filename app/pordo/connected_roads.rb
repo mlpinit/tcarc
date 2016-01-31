@@ -17,6 +17,15 @@ class ConnectedRoads
     connections
   end
 
+  def meeple_composite_keys_sql_ready
+    meeple_composite_keys
+    if connections.present?
+      connections.to_s.gsub("[", "(").gsub("]",")").gsub('"', '\'')
+    else
+      "((NULL, NULL))"
+    end
+  end
+
   private
 
   def collect_meeple_identifiers(tile, direction)
