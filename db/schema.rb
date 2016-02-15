@@ -39,14 +39,14 @@ ActiveRecord::Schema.define(version: 20160215175238) do
     t.string   "south"
     t.string   "west"
     t.string   "east"
-    t.boolean  "monestary",  default: false
-    t.boolean  "end_road",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "start",      default: false
+    t.boolean  "monestary",        default: false
+    t.boolean  "end_road",         default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "start",            default: false
     t.integer  "user_id"
     t.integer  "game_id"
-    t.boolean  "castle_end", default: false
+    t.boolean  "connected_castle", default: false
   end
 
   create_table "users", force: :cascade do |t|
