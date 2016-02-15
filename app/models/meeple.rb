@@ -3,7 +3,7 @@ class Meeple < ActiveRecord::Base
   belongs_to :tile
   belongs_to :game
 
-  validate :last_tile_placement, :no_field_placement, :road_overplacement
+  validate :last_tile_placement, :no_field_placement, :road_overplacement, :castle_overplacement
 
   def last_tile_placement
     if game.last_tile != tile
@@ -18,13 +18,26 @@ class Meeple < ActiveRecord::Base
   end
 
   def road_overplacement
-    meeple_composite_keys_sql_ready = ConnectedRoads
+    return unless tile.send(direction) == "road"
+    composite_keys_sql_ready = ConnectedRoads
       .new(game_tiles: game.tiles, meeple: self)
       .meeple_composite_keys_sql_ready
-    meeples = game.meeples.where("(tile_id, direction) IN #{meeple_composite_keys_sql_ready}")
+    meeples = game.meeples.where("(tile_id, direction) IN #{composite_keys_sql_ready}")
 
     if meeples.present?
       errors.add(:base, "Can't place meeple on a road with another meeple.")
+    end
+  end
+
+  def castle_overplacement
+    return unless tile.send(direction) == "castle"
+    composite_keys_sql_ready = ConnectedCastles
+      .new(game_tiles: game.tiles, meeple: self)
+      .connections_composite_keys_sql_ready
+    meeples = game.meeples.where("(tile_id, direction) IN #{composite_keys_sql_ready}")
+
+    if meeples.present?
+      errors.add(:base, "Can't place meeple on a castle with another meeple.")
     end
   end
 

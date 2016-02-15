@@ -20,11 +20,7 @@ class ConnectedRoads
 
   def meeple_composite_keys_sql_ready
     meeple_composite_keys
-    if connections.present?
-      connections.to_s.gsub("[", "(").gsub("]",")").gsub('"', '\'')
-    else
-      "((NULL, NULL))"
-    end
+    sql_ready_connections
   end
 
   private

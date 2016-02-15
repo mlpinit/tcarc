@@ -14,6 +14,11 @@ class ConnectedCastles
     connections
   end
 
+  def connections_composite_keys_sql_ready
+    connections_composite_keys
+    sql_ready_connections
+  end
+
   private
 
   def extract(tile, direction)
