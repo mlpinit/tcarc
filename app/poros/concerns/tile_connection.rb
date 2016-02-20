@@ -1,5 +1,9 @@
 module TileConnection
 
+  def connections
+    @connections.extend(SqlReady)
+  end
+
   def directions
     %w{south north east west}
   end
@@ -25,11 +29,13 @@ module TileConnection
     @current_tile = game_tiles.find { |t| t.id == meeple.tile_id }
   end
 
-  def sql_ready_connections
-    if connections.present?
-      connections.to_s.gsub("[", "(").gsub("]",")").gsub('"', '\'')
-    else
-      "((NULL, NULL))"
+  module SqlReady
+    def sql_ready
+      if self.present?
+        self.to_s.gsub("[", "(").gsub("]",")").gsub('"', '\'')
+      else
+        "((NULL, NULL))"
+      end
     end
   end
 

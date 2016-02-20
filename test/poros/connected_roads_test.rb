@@ -6,13 +6,13 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
     assert_equal meeple_composite_keys1.sort, 
       ConnectedRoads
         .new(game_tiles: game_tiles1, meeple: meeple1)
-        .meeple_composite_keys
+        .connections
         .sort
 
     assert_equal meeple_composite_keys1v2.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles1, meeple: meeple1v2)
-        .meeple_composite_keys
+        .connections
         .sort
   end
 
@@ -21,25 +21,25 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
     assert_equal meeple_composite_keys2.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles2, meeple: meeple2)
-        .meeple_composite_keys
+        .connections
         .sort
 
     assert_equal meeple_composite_keys2v2.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles2, meeple: meeple2v2)
-        .meeple_composite_keys
+        .connections
         .sort
 
     assert_equal meeple_composite_keys3.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles3, meeple: meeple3)
-        .meeple_composite_keys
+        .connections
         .sort
 
     assert_equal meeple_composite_keys3v2.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles3, meeple: meeple3v2)
-        .meeple_composite_keys
+        .connections
         .sort
   end
 
@@ -47,7 +47,7 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
     assert_equal meeple_composite_keys4.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles4, meeple: meeple4)
-        .meeple_composite_keys
+        .connections
         .sort
   end
 
@@ -55,7 +55,7 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
     assert_equal meeple_composite_keys5.sort,
       ConnectedRoads
         .new(game_tiles: game_tiles5, meeple: meeple5)
-        .meeple_composite_keys
+        .connections
         .sort
   end
 

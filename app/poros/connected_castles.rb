@@ -1,22 +1,13 @@
 class ConnectedCastles
   include TileConnection
 
-  attr_reader :game_tiles, :meeple, :connections
+  attr_reader :game_tiles, :meeple
 
   def initialize(game_tiles:, meeple:)
     @game_tiles = game_tiles
     @meeple = meeple
     @connections = []
-  end
-
-  def connections_composite_keys
     extract(current_tile, meeple.direction)
-    connections
-  end
-
-  def connections_composite_keys_sql_ready
-    connections_composite_keys
-    sql_ready_connections
   end
 
   private

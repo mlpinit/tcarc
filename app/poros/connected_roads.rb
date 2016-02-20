@@ -1,26 +1,17 @@
 class ConnectedRoads
   include TileConnection
 
-  attr_reader :game_tiles, :meeple, :connections
+  attr_reader :game_tiles, :meeple
 
   def initialize(game_tiles: game_tiles, meeple: meeple)
     @game_tiles  = game_tiles
     @meeple      = meeple
     @connections = []
-  end
-
-  def meeple_composite_keys
     collect_meeple_identifiers(*next_pair(current_tile, meeple.direction))
     unless current_tile.end_road || unintrerupted_loop?
       od = other_direction(current_tile, meeple.direction)
       collect_meeple_identifiers(*next_pair(current_tile, od)) 
     end
-    connections
-  end
-
-  def meeple_composite_keys_sql_ready
-    meeple_composite_keys
-    sql_ready_connections
   end
 
   private

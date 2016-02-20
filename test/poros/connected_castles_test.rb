@@ -5,27 +5,27 @@ class ConnectedCastlesTest < ActiveSupport::TestCase
   test 'same tile castle not connected' do
     assert_equal game_tiles1_expected, ConnectedCastles
       .new(game_tiles: game_tiles1, meeple: meeple)
-      .connections_composite_keys
+      .connections
   end
 
   test 'same tile connected castle' do
     assert_equal game_tiles2_expected, ConnectedCastles
       .new(game_tiles: game_tiles2, meeple: meeple)
-      .connections_composite_keys 
+      .connections
       .sort
   end
 
   test "connected and not connected combo" do
     assert_equal game_tiles3_expected, ConnectedCastles
       .new(game_tiles: game_tiles3, meeple: meeple)
-      .connections_composite_keys
+      .connections
       .sort
   end
 
   test "fully closed castle" do
     assert_equal game_tiles4_expected, ConnectedCastles
       .new(game_tiles: game_tiles4, meeple: meeple)
-      .connections_composite_keys 
+      .connections
       .sort
   end
 
