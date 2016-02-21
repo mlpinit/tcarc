@@ -26,9 +26,9 @@ class ConnectedCastles
   end
 
   def collect_single_connection_id(tile, direction)
-    composite_key = [tile.id, direction]
-    return if connections.include?(composite_key)
-    connections << composite_key 
+    connection = [tile.id, direction]
+    return if connections.include?(connection)
+    connections << connection 
     neighbour = neighbour(tile.x, tile.y, direction)
     extract(neighbour, opposite_direction(direction)) if neighbour
   end
