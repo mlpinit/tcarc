@@ -7,40 +7,30 @@ class ConnectedRoads
     @game_tiles             = game_tiles
     @current_tile           = current_tile
     @current_tile_direction = current_tile_direction
-
-    collect_connections(*next_pair(current_tile, current_tile_direction))
-    unless current_tile.end_road || unintrerupted_loop?
-      od = other_direction(current_tile, current_tile_direction)
-      collect_connections(*next_pair(current_tile, od)) 
-    end
+    extract(current_tile, current_tile_direction)
   end
 
   private
 
-  def collect_connections(tile, direction)
-    return unless tile # openended road
-    return if tile == current_tile && !tile.end_road # looping road
-    connections << [tile.id, direction]
-    return if tile.end_road # end road
-    od = other_direction(tile, direction)
-    connections << [tile.id, od]
-    collect_connections(*next_pair(tile, od))
-  end
-
-  def next_pair(tile, direction)
-    [neighbour(tile.x, tile.y, direction), opposite_direction(direction)]
-  end
-
-  def other_direction(tile, direction)
-    directions.select { |dir| dir != direction }.find do |dir|
-      tile.send(dir) == "road"
+  def extract(tile, direction)
+    if tile.end_road
+      collect_single_connection_id(tile, direction)
+    else
+      collect_all_connections_ids(tile)
     end
   end
 
-  def unintrerupted_loop?
-    od = other_direction(current_tile, current_tile_direction)
-    tile = next_pair(current_tile, od).first
-    connections.map(&:first).include?(tile.try(:id))
+  def collect_all_connections_ids(tile)
+    road_directions = directions.select { |dir| tile.send(dir) == "road" }
+    road_directions.each { |dir| collect_single_connection_id(tile, dir) }
+  end
+
+  def collect_single_connection_id(tile, direction)
+    connection = [tile.id, direction]
+    return if connections.include?(connection)
+    connections << connection
+    neighbour = neighbour(tile.x, tile.y, direction)
+    extract(neighbour, opposite_direction(direction)) if neighbour
   end
 
 end
