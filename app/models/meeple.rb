@@ -38,13 +38,13 @@ class Meeple < ActiveRecord::Base
   private
 
   def connected_castles
-    @connected_castles ||= ConnectedCastles
+    @connected_castles ||= CastleConnections
       .new(game_tiles: game.tiles, current_tile: tile, current_tile_direction: direction)
       .connections
   end
 
   def connected_roads
-    @connected_roads ||= ConnectedRoads
+    @connected_roads ||= RoadConnections
       .new(game_tiles: game.tiles, current_tile: tile, current_tile_direction: direction)
       .connections
   end

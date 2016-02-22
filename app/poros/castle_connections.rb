@@ -1,4 +1,4 @@
-class ConnectedRoads
+class CastleConnections
   include TileConnection
 
   attr_reader :game_tiles, :current_tile, :current_tile_direction
@@ -13,22 +13,22 @@ class ConnectedRoads
   private
 
   def extract(tile, direction)
-    if tile.end_road
-      collect_single_connection_id(tile, direction)
-    else
+    if tile.connected_castle
       collect_all_connections_ids(tile)
+    else
+      collect_single_connection_id(tile, direction)
     end
   end
 
   def collect_all_connections_ids(tile)
-    road_directions = directions.select { |dir| tile.send(dir) == "road" }
-    road_directions.each { |dir| collect_single_connection_id(tile, dir) }
+    castles_directions = directions.select { |dir| tile.send(dir) == "castle" }
+    castles_directions.each { |dir| collect_single_connection_id(tile, dir) }
   end
 
   def collect_single_connection_id(tile, direction)
     connection = [tile.id, direction]
     return if connections.include?(connection)
-    connections << connection
+    connections << connection 
     neighbour = neighbour(tile.x, tile.y, direction)
     extract(neighbour, opposite_direction(direction)) if neighbour
   end
