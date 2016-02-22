@@ -3,7 +3,7 @@ class RoadConnections < Connections
   private 
 
   def connected(tile)
-    !tile.end_road
+    tile.connected_road
   end
 
   def available_directions(tile)

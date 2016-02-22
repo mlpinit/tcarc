@@ -38,10 +38,10 @@ class MeepleTest < ActiveSupport::TestCase
 
   test "don't allow a meeple on a road that already has a meeple" do
     tile = Tile.create!(x: 22, y: 0, east: "road", west: "road", south: "field", north: "field", start: true, game: game)
-    john.meeples.create!(tile: tile, game: game, direction: "west")
+    john.meeples.create!(tile: tile, game: game, direction: "east")
     tile = Tile.create!(x: 23, y: 0, east: "road", west: "road", south: "field", north: "field",  start: false, game: game)
     exception = assert_raise ActiveRecord::RecordInvalid do
-      john.meeples.create!(tile: tile, game: game.reload, direction: "east")
+      john.meeples.create!(tile: tile, game: game.reload, direction: "west")
     end
     assert_equal "Validation failed: Can't place meeple on a road with another meeple.", exception.message
   end

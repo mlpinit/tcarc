@@ -8,7 +8,7 @@ road:
   west: "road"
   east: "road"
   monestary: false
-  end_road: false
+  connected_road: true
   connected_castle: false
   start: true
 
@@ -20,7 +20,7 @@ castle:
   west: "castle"
   east: "castle"
   monestary: false
-  end_road: false
+  connected_road: true
   connected_castle: false
   start: true
 
@@ -32,6 +32,6 @@ field:
   west: "field"
   east: "field"
   monestary: false
-  end_road: false
+  connected_road: true
   connected_castle: false
   start: true

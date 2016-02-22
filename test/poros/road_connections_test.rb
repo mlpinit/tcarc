@@ -56,19 +56,19 @@ class RoadConnectionsTest < ActiveSupport::TestCase
   def game_tiles1
     [
       current_tile1v2,
-      OpenStruct.new(id: 1, x: 0, y: 1, end_road: false, south: "road", west: "road"),
+      OpenStruct.new(id: 1, x: 0, y: 1, connected_road: true, south: "road", west: "road"),
       current_tile1,
-      OpenStruct.new(id: 3, x: -1, y: 2, end_road: false, south: "road", west: "road"),
-      OpenStruct.new(id: 4, x: -2, y: 2, end_road: false, north: "road", east: "road"),
+      OpenStruct.new(id: 3, x: -1, y: 2, connected_road: true, south: "road", west: "road"),
+      OpenStruct.new(id: 4, x: -2, y: 2, connected_road: true, north: "road", east: "road"),
     ]
   end
 
   def current_tile1
-    OpenStruct.new(id: 2, x: -1, y: 1, end_road: false, east: "road", north: "road")
+    OpenStruct.new(id: 2, x: -1, y: 1, connected_road: true, east: "road", north: "road")
   end
 
   def current_tile1v2
-    OpenStruct.new(id: 0, x: 0, y: 0, end_road: false, south: "road", north: "road")
+    OpenStruct.new(id: 0, x: 0, y: 0, connected_road: true, south: "road", north: "road")
   end
 
   def connections1
@@ -94,23 +94,23 @@ class RoadConnectionsTest < ActiveSupport::TestCase
   def game_tiles2
     [
       current_tile2,
-      OpenStruct.new(id: 1, x: 0, y: -1, end_road: false, north: "road", south: "road"),
-      OpenStruct.new(id: 2, x: 0, y: -2, end_road: false, north: "road", east: "road"),
-      OpenStruct.new(id: 3, x: 1, y: -2, end_road: false, west: "road", east: "road"),
+      OpenStruct.new(id: 1, x: 0, y: -1, connected_road: true, north: "road", south: "road"),
+      OpenStruct.new(id: 2, x: 0, y: -2, connected_road: true, north: "road", east: "road"),
+      OpenStruct.new(id: 3, x: 1, y: -2, connected_road: true, west: "road", east: "road"),
       current_tile2v2,
-      OpenStruct.new(id: 5, x: 3, y: -2, end_road: false, west: "road", east: "road"),
-      OpenStruct.new(id: 6, x: 4, y: -2, end_road: false, west: "road", south: "road"),
-      OpenStruct.new(id: 7, x: 4, y: -3, end_road: false, north: "road", south: "road"),
-      OpenStruct.new(id: 8, x: 4, y: -4, end_road: true, north: "road")
+      OpenStruct.new(id: 5, x: 3, y: -2, connected_road: true, west: "road", east: "road"),
+      OpenStruct.new(id: 6, x: 4, y: -2, connected_road: true, west: "road", south: "road"),
+      OpenStruct.new(id: 7, x: 4, y: -3, connected_road: true, north: "road", south: "road"),
+      OpenStruct.new(id: 8, x: 4, y: -4, connected_road: false, north: "road")
     ]
   end
 
   def current_tile2
-    OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, south: "road")
+    OpenStruct.new(id: 0, x: 0, y: 0, connected_road: false, south: "road")
   end
 
   def current_tile2v2
-    OpenStruct.new(id: 4, x: 2, y: -2, end_road: false, west: "road", east: "road")
+    OpenStruct.new(id: 4, x: 2, y: -2, connected_road: true, west: "road", east: "road")
   end
 
   def connections2
@@ -146,16 +146,16 @@ class RoadConnectionsTest < ActiveSupport::TestCase
     [
       current_tile3,
       current_tile3v2,
-      OpenStruct.new(id: 2, x: 2, y: 0, end_road: true, west: "road")
+      OpenStruct.new(id: 2, x: 2, y: 0, connected_road: false, west: "road")
     ]
   end
 
   def current_tile3
-    OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, east: "road")
+    OpenStruct.new(id: 0, x: 0, y: 0, connected_road: false, east: "road")
   end
 
   def current_tile3v2
-    OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", east: "road")
+    OpenStruct.new(id: 1, x: 1, y: 0, connected_road: true, west: "road", east: "road")
   end
 
   def connections3
@@ -170,14 +170,14 @@ class RoadConnectionsTest < ActiveSupport::TestCase
   def game_tiles4
     [
       current_tile4,
-      OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", north: "road"),
-      OpenStruct.new(id: 2, x: 1, y: 1, end_road: false, south: "road", west: "road"),
-      OpenStruct.new(id: 3, x: 0, y: 1, end_road: false, south: "road", east: "road"),
+      OpenStruct.new(id: 1, x: 1, y: 0, connected_road: true, west: "road", north: "road"),
+      OpenStruct.new(id: 2, x: 1, y: 1, connected_road: true, south: "road", west: "road"),
+      OpenStruct.new(id: 3, x: 0, y: 1, connected_road: true, south: "road", east: "road"),
     ]
   end
 
   def current_tile4
-    OpenStruct.new(id: 0, x: 0, y: 0, end_road: false, north: "road", east: "road")
+    OpenStruct.new(id: 0, x: 0, y: 0, connected_road: true, north: "road", east: "road")
   end
 
   def connections4
@@ -192,14 +192,14 @@ class RoadConnectionsTest < ActiveSupport::TestCase
   def game_tiles5
     [
       current_tile5,
-      OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", north: "road"),
-      OpenStruct.new(id: 2, x: 1, y: 1, end_road: false, south: "road", west: "road"),
-      OpenStruct.new(id: 3, x: 0, y: 1, end_road: false, east: "road", south: "road"),
+      OpenStruct.new(id: 1, x: 1, y: 0, connected_road: true, west: "road", north: "road"),
+      OpenStruct.new(id: 2, x: 1, y: 1, connected_road: true, south: "road", west: "road"),
+      OpenStruct.new(id: 3, x: 0, y: 1, connected_road: true, east: "road", south: "road"),
     ]
   end
 
   def current_tile5
-    OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, north: "road", east: "road", west: "road")
+    OpenStruct.new(id: 0, x: 0, y: 0, connected_road: false, north: "road", east: "road", west: "road")
   end
 
   def connections5
