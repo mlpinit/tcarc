@@ -2,12 +2,8 @@ class RoadConnections < Connections
 
   private 
 
-  def extract(tile, direction)
-    if tile.end_road
-      collect_single_connection_id(tile, direction)
-    else
-      collect_all_connections_ids(tile)
-    end
+  def connected(tile)
+    !tile.end_road
   end
 
   def available_directions(tile)

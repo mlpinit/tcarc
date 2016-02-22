@@ -2,12 +2,8 @@ class CastleConnections < Connections
 
   private
 
-  def extract(tile, direction)
-    if tile.connected_castle
-      collect_all_connections_ids(tile)
-    else
-      collect_single_connection_id(tile, direction)
-    end
+  def connected(tile)
+    tile.connected_castle
   end
 
   def available_directions(tile)

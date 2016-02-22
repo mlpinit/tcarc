@@ -15,6 +15,14 @@ class Connections
 
   private
 
+  def extract(tile, direction)
+    if connected(tile)
+      collect_all_connections_ids(tile)
+    else
+      collect_single_connection_id(tile, direction)
+    end
+  end
+
   def available_directions(tile)
     raise "#available_directions needs to be implemented in subclass!"
   end
