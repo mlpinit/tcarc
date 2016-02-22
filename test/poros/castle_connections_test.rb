@@ -3,27 +3,27 @@ require 'test_helper'
 class CastleConnectionsTest < ActiveSupport::TestCase
 
   test 'same tile castle not connected' do
-    assert_equal game_tiles1_expected, CastleConnections
+    assert_equal game_tiles1_expected, Connections
       .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: current_tile_direction)
       .connections
   end
 
   test 'same tile connected castle' do
-    assert_equal game_tiles2_expected, CastleConnections
+    assert_equal game_tiles2_expected, Connections
       .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: current_tile_direction)
       .connections
       .sort
   end
 
   test "connected and not connected combo" do
-    assert_equal game_tiles3_expected, CastleConnections
+    assert_equal game_tiles3_expected, Connections
       .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: current_tile_direction)
       .connections
       .sort
   end
 
   test "fully closed castle" do
-    assert_equal game_tiles4_expected, CastleConnections
+    assert_equal game_tiles4_expected, Connections
       .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: current_tile_direction)
       .connections
       .sort

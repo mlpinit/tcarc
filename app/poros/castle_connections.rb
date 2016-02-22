@@ -1,2 +1,0 @@
-class CastleConnections < Connections
-end

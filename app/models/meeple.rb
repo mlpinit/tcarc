@@ -19,7 +19,7 @@ class Meeple < ActiveRecord::Base
 
   def road_overplacement
     return unless tile.send(direction) == "road"
-    meeples = game.meeples.where("(tile_id, direction) IN #{connected_roads.sql_ready}")
+    meeples = game.meeples.where("(tile_id, direction) IN #{connections.sql_ready}")
 
     if meeples.present?
       errors.add(:base, "Can't place meeple on a road with another meeple.")
@@ -28,7 +28,7 @@ class Meeple < ActiveRecord::Base
 
   def castle_overplacement
     return unless tile.send(direction) == "castle"
-    meeples = game.meeples.where("(tile_id, direction) IN #{connected_castles.sql_ready}")
+    meeples = game.meeples.where("(tile_id, direction) IN #{connections.sql_ready}")
 
     if meeples.present?
       errors.add(:base, "Can't place meeple on a castle with another meeple.")
@@ -37,14 +37,8 @@ class Meeple < ActiveRecord::Base
 
   private
 
-  def connected_castles
-    @connected_castles ||= CastleConnections
-      .new(game_tiles: game.tiles, current_tile: tile, current_tile_direction: direction)
-      .connections
-  end
-
-  def connected_roads
-    @connected_roads ||= RoadConnections
+  def connections
+    @connections ||= Connections
       .new(game_tiles: game.tiles, current_tile: tile, current_tile_direction: direction)
       .connections
   end

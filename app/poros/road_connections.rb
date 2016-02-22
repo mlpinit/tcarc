@@ -1,2 +1,0 @@
-class RoadConnections < Connections
-end
