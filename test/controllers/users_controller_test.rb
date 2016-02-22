@@ -3,7 +3,7 @@ require "test_helper"
 class UsersControllerTest < ActionController::TestCase
 
   test "#signup" do
-    get :new
+    process(:new, method: :get)
 
     assert_select "title", "Sign Up"
     assert_select "form"
@@ -23,7 +23,7 @@ class UsersControllerTest < ActionController::TestCase
       "password_confirmation" => "1234abcd"
     }
 
-    post :create, user: user_attributes
+    process(:create, method: :post, params: { user: user_attributes })
 
     user = User.last
     assert_equal "John", user.username
@@ -39,7 +39,7 @@ class UsersControllerTest < ActionController::TestCase
       "password_confirmation" => ""
     }
 
-    post :create, user: user_attributes
+    process(:create, method: :post, params: { user: user_attributes })
     assert render: :new
   end
 
