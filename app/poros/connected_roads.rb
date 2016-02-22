@@ -1,29 +1,30 @@
 class ConnectedRoads
   include TileConnection
 
-  attr_reader :game_tiles, :meeple
+  attr_reader :game_tiles, :current_tile, :current_tile_direction
 
-  def initialize(game_tiles: game_tiles, meeple: meeple)
-    @game_tiles  = game_tiles
-    @meeple      = meeple
-    @connections = []
-    collect_meeple_identifiers(*next_pair(current_tile, meeple.direction))
+  def initialize(game_tiles:, current_tile:, current_tile_direction:)
+    @game_tiles             = game_tiles
+    @current_tile           = current_tile
+    @current_tile_direction = current_tile_direction
+
+    collect_connections(*next_pair(current_tile, current_tile_direction))
     unless current_tile.end_road || unintrerupted_loop?
-      od = other_direction(current_tile, meeple.direction)
-      collect_meeple_identifiers(*next_pair(current_tile, od)) 
+      od = other_direction(current_tile, current_tile_direction)
+      collect_connections(*next_pair(current_tile, od)) 
     end
   end
 
   private
 
-  def collect_meeple_identifiers(tile, direction)
+  def collect_connections(tile, direction)
     return unless tile # openended road
     return if tile == current_tile && !tile.end_road # looping road
     connections << [tile.id, direction]
     return if tile.end_road # end road
     od = other_direction(tile, direction)
     connections << [tile.id, od]
-    collect_meeple_identifiers(*next_pair(tile, od))
+    collect_connections(*next_pair(tile, od))
   end
 
   def next_pair(tile, direction)
@@ -37,7 +38,7 @@ class ConnectedRoads
   end
 
   def unintrerupted_loop?
-    od = other_direction(current_tile, meeple.direction)
+    od = other_direction(current_tile, current_tile_direction)
     tile = next_pair(current_tile, od).first
     connections.map(&:first).include?(tile.try(:id))
   end

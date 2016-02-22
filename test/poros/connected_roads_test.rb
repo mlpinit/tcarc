@@ -5,13 +5,13 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
   test "meeple composite keys" do
     assert_equal meeple_composite_keys1.sort, 
       ConnectedRoads
-        .new(game_tiles: game_tiles1, meeple: meeple1)
+        .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: "north")
         .connections
         .sort
 
     assert_equal meeple_composite_keys1v2.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles1, meeple: meeple1v2)
+        .new(game_tiles: game_tiles1, current_tile: current_tile1v2, current_tile_direction: "north")
         .connections
         .sort
   end
@@ -20,25 +20,25 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
   test "meeple composite keys with end tiles" do
     assert_equal meeple_composite_keys2.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles2, meeple: meeple2)
+        .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: "south")
         .connections
         .sort
 
     assert_equal meeple_composite_keys2v2.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles2, meeple: meeple2v2)
+        .new(game_tiles: game_tiles2, current_tile: current_tile2v2, current_tile_direction: "west")
         .connections
         .sort
 
     assert_equal meeple_composite_keys3.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles3, meeple: meeple3)
+        .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: "east")
         .connections
         .sort
 
     assert_equal meeple_composite_keys3v2.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles3, meeple: meeple3v2)
+        .new(game_tiles: game_tiles3, current_tile: current_tile3v2, current_tile_direction: "west")
         .connections
         .sort
   end
@@ -46,7 +46,7 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
   test "meeple composite keys loop" do
     assert_equal meeple_composite_keys4.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles4, meeple: meeple4)
+        .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: "east")
         .connections
         .sort
   end
@@ -54,7 +54,7 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
   test "meeple composite keys loop with end road" do
     assert_equal meeple_composite_keys5.sort,
       ConnectedRoads
-        .new(game_tiles: game_tiles5, meeple: meeple5)
+        .new(game_tiles: game_tiles5, current_tile: current_tile5, current_tile_direction: "east")
         .connections
         .sort
   end
@@ -63,21 +63,29 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
 
   def game_tiles1
     [
-      OpenStruct.new(id: 0, x: 0, y: 0, end_road: false, south: "road", north: "road"),
+      current_tile1v2,
       OpenStruct.new(id: 1, x: 0, y: 1, end_road: false, south: "road", west: "road"),
-      OpenStruct.new(id: 2, x: -1, y: 1, end_road: false, east: "road", north: "road"),
+      current_tile1,
       OpenStruct.new(id: 3, x: -1, y: 2, end_road: false, south: "road", west: "road"),
       OpenStruct.new(id: 4, x: -2, y: 2, end_road: false, north: "road", east: "road"),
     ]
   end
 
+  def current_tile1
+    OpenStruct.new(id: 2, x: -1, y: 1, end_road: false, east: "road", north: "road")
+  end
+
+  def current_tile1v2
+    OpenStruct.new(id: 0, x: 0, y: 0, end_road: false, south: "road", north: "road")
+  end
+
   def game_tiles2
     [
-      OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, south: "road"),
+      current_tile2,
       OpenStruct.new(id: 1, x: 0, y: -1, end_road: false, north: "road", south: "road"),
       OpenStruct.new(id: 2, x: 0, y: -2, end_road: false, north: "road", east: "road"),
       OpenStruct.new(id: 3, x: 1, y: -2, end_road: false, west: "road", east: "road"),
-      OpenStruct.new(id: 4, x: 2, y: -2, end_road: false, west: "road", east: "road"),
+      current_tile2v2,
       OpenStruct.new(id: 5, x: 3, y: -2, end_road: false, west: "road", east: "road"),
       OpenStruct.new(id: 6, x: 4, y: -2, end_road: false, west: "road", south: "road"),
       OpenStruct.new(id: 7, x: 4, y: -3, end_road: false, north: "road", south: "road"),
@@ -85,62 +93,54 @@ class ConnectedRoadsTest < ActiveSupport::TestCase
     ]
   end
 
+  def current_tile2
+    OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, south: "road")
+  end
+
+  def current_tile2v2
+    OpenStruct.new(id: 4, x: 2, y: -2, end_road: false, west: "road", east: "road")
+  end
+
   def game_tiles3
     [
-      OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, east: "road"),
-      OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", east: "road"),
+      current_tile3,
+      current_tile3v2,
       OpenStruct.new(id: 2, x: 2, y: 0, end_road: true, west: "road")
     ]
   end
 
+  def current_tile3
+    OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, east: "road")
+  end
+
+  def current_tile3v2
+    OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", east: "road")
+  end
+
   def game_tiles4
     [
-      OpenStruct.new(id: 0, x: 0, y: 0, end_road: false, north: "road", east: "road"),
+      current_tile4,
       OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", north: "road"),
       OpenStruct.new(id: 2, x: 1, y: 1, end_road: false, south: "road", west: "road"),
       OpenStruct.new(id: 3, x: 0, y: 1, end_road: false, south: "road", east: "road"),
     ]
   end
 
+  def current_tile4
+    OpenStruct.new(id: 0, x: 0, y: 0, end_road: false, north: "road", east: "road")
+  end
+
   def game_tiles5
     [
-      OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, north: "road", east: "road", west: "road"),
+      current_tile5,
       OpenStruct.new(id: 1, x: 1, y: 0, end_road: false, west: "road", north: "road"),
       OpenStruct.new(id: 2, x: 1, y: 1, end_road: false, south: "road", west: "road"),
       OpenStruct.new(id: 3, x: 0, y: 1, end_road: false, east: "road", south: "road"),
     ]
   end
 
-  def meeple1
-    OpenStruct.new(tile_id: 2, direction: "north")
-  end
-
-  def meeple1v2
-    OpenStruct.new(tile_id: 0, direction: "north")
-  end
-
-  def meeple2
-    OpenStruct.new(tile_id: 0, direction: "south")
-  end
-
-  def meeple2v2
-    OpenStruct.new(tile_id: 4, direction: "west")
-  end
-
-  def meeple3
-    OpenStruct.new(tile_id: 0, direction: "east")
-  end
-
-  def meeple3v2
-    OpenStruct.new(tile_id: 1, direction: "west")
-  end
-
-  def meeple4
-    OpenStruct.new(tile_id: 0, direction: "east")
-  end
-
-  def meeple5
-    OpenStruct.new(tile_id: 0, direction: "east")
+  def current_tile5
+    OpenStruct.new(id: 0, x: 0, y: 0, end_road: true, north: "road", east: "road", west: "road")
   end
 
   def meeple_composite_keys1

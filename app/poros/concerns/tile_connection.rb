@@ -1,7 +1,7 @@
 module TileConnection
 
   def connections
-    @connections.extend(SqlReady)
+    @connections ||= [].extend(SqlReady)
   end
 
   def directions
@@ -23,10 +23,6 @@ module TileConnection
     y = y - 1 if direction == "south"
     y = y + 1 if direction == "north"
     game_tiles.find { |t| t.x == x && t.y == y }
-  end
-
-  def current_tile
-    @current_tile = game_tiles.find { |t| t.id == meeple.tile_id }
   end
 
   module SqlReady
