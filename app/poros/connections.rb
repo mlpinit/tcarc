@@ -15,8 +15,13 @@ class Connections
 
   private
 
+  def type
+    # infer if we are looking for road or castle connections
+    current_tile.send(current_tile_direction)
+  end
+
   def extract(tile, direction)
-    if connected(tile)
+    if tile.send("connected_#{type}")
       collect_all_connections_ids(tile)
     else
       collect_single_connection_id(tile, direction)
@@ -24,7 +29,7 @@ class Connections
   end
 
   def available_directions(tile)
-    raise "#available_directions needs to be implemented in subclass!"
+    directions.select { |dir| tile.send(dir) == type }
   end
 
   def collect_all_connections_ids(tile)
