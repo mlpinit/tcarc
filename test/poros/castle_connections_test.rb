@@ -6,6 +6,10 @@ class CastleConnectionsTest < ActiveSupport::TestCase
     assert_equal game_tiles1_expected, Connections
       .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: current_tile_direction)
       .connections
+
+    assert Connections
+      .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: current_tile_direction)
+      .open?
   end
 
   test 'same tile connected castle' do
@@ -13,6 +17,10 @@ class CastleConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: current_tile_direction)
       .connections
       .sort
+
+    assert game_tiles2_expected, Connections
+      .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: current_tile_direction)
+      .open?
   end
 
   test "connected and not connected combo" do
@@ -20,6 +28,10 @@ class CastleConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: current_tile_direction)
       .connections
       .sort
+
+    assert Connections
+      .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: current_tile_direction)
+      .open?
   end
 
   test "fully closed castle" do
@@ -27,6 +39,10 @@ class CastleConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: current_tile_direction)
       .connections
       .sort
+
+    assert_not Connections
+      .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: current_tile_direction)
+      .open?
   end
 
   private
@@ -37,16 +53,27 @@ class CastleConnectionsTest < ActiveSupport::TestCase
       south: "field", west: "field", north: "castle", east: "castle")
   end
 
+  def game_tiles1
+    [current_tile1]
+  end
+
+  def game_tiles1_expected
+    [[0, "north"]]
+  end
+
+
   def current_tile2
     OpenStruct.new(
       id: 0, x: 0, y: 0, connected_castle: true,
       south: "field", west: "field", north: "castle", east: "castle")
   end
 
-  def current_tile3
-    OpenStruct.new(
-      id: 0, x: 0, y: 0, connected_castle: false,
-      south: "field", west: "field", north: "castle", east: "castle")
+  def game_tiles2
+    [current_tile2]
+  end
+
+  def game_tiles2_expected
+    [[0, "east"], [0, "north"]].sort
   end
 
   def current_tile4
@@ -56,18 +83,6 @@ class CastleConnectionsTest < ActiveSupport::TestCase
 
   def current_tile_direction
     "north"
-  end
-
-  def game_tiles1
-    [current_tile1]
-  end
-
-  def game_tiles1_expected
-    [[0, "north"]]
-  end
-
-  def game_tiles2
-    [current_tile2]
   end
 
   def game_tiles3
@@ -80,6 +95,12 @@ class CastleConnectionsTest < ActiveSupport::TestCase
         id: 2, x: 1, y: 1, connected_castle: true,
         west: "castle", south: "castle", east: "field", north: "castle")
     ]
+  end
+
+  def current_tile3
+    OpenStruct.new(
+      id: 0, x: 0, y: 0, connected_castle: false,
+      south: "field", west: "field", north: "castle", east: "castle")
   end
 
   def game_tiles4
@@ -98,10 +119,6 @@ class CastleConnectionsTest < ActiveSupport::TestCase
       OpenStruct.new(id: 6, x: -2, y: 1, connected_castle: false,
         south: "castle", west: "field", north: "field", east: "field")
     ]
-  end
-
-  def game_tiles2_expected
-    [[0, "east"], [0, "north"]].sort
   end
 
   def game_tiles3_expected

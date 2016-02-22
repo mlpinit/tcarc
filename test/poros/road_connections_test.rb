@@ -12,6 +12,10 @@ class RoadConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles1, current_tile: current_tile1v2, current_tile_direction: "north")
       .connections
       .sort
+
+    assert Connections
+      .new(game_tiles: game_tiles1, current_tile: current_tile1v2, current_tile_direction: "north")
+      .open?
   end
 
 
@@ -26,6 +30,10 @@ class RoadConnectionsTest < ActiveSupport::TestCase
       .connections
       .sort
 
+    assert_not Connections
+      .new(game_tiles: game_tiles2, current_tile: current_tile2v2, current_tile_direction: "west")
+      .open?
+
     assert_equal connections3.sort, Connections
       .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: "east")
       .connections
@@ -35,6 +43,10 @@ class RoadConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles3, current_tile: current_tile3v2, current_tile_direction: "west")
       .connections
       .sort
+
+    assert_not Connections
+      .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: "east")
+      .open?
   end
 
   test "meeple composite keys loop" do
@@ -42,6 +54,10 @@ class RoadConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: "east")
       .connections
       .sort
+
+    assert_not Connections
+      .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: "east")
+      .open?
   end
 
   test "meeple composite keys loop with end road" do
@@ -49,6 +65,10 @@ class RoadConnectionsTest < ActiveSupport::TestCase
       .new(game_tiles: game_tiles5, current_tile: current_tile5, current_tile_direction: "east")
       .connections
       .sort
+
+    assert_not Connections
+      .new(game_tiles: game_tiles5, current_tile: current_tile5, current_tile_direction: "east")
+      .open?
   end
 
   private
