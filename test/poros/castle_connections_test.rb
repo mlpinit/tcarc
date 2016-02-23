@@ -3,46 +3,31 @@ require 'test_helper'
 class CastleConnectionsTest < ActiveSupport::TestCase
 
   test 'same tile castle not connected' do
-    assert_equal game_tiles1_expected, Connections
-      .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: current_tile_direction)
-      .connections
-
-    assert Connections
-      .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: current_tile_direction)
-      .open?
+    subject = Connections.new(
+      game_tiles: game_tiles1,
+      current_tile: current_tile1,
+      current_tile_direction: current_tile_direction
+    )
+    assert_equal game_tiles1_expected, subject.connections
+    assert subject.open?
   end
 
   test 'same tile connected castle' do
-    assert_equal game_tiles2_expected, Connections
-      .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: current_tile_direction)
-      .connections
-      .sort
-
-    assert game_tiles2_expected, Connections
-      .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: current_tile_direction)
-      .open?
+    subject = Connections.new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: current_tile_direction)
+    assert_equal game_tiles2_expected, subject.connections.sort
+    assert subject.open?
   end
 
   test "connected and not connected combo" do
-    assert_equal game_tiles3_expected, Connections
-      .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: current_tile_direction)
-      .connections
-      .sort
-
-    assert Connections
-      .new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: current_tile_direction)
-      .open?
+    subject = Connections.new(game_tiles: game_tiles3, current_tile: current_tile3, current_tile_direction: current_tile_direction)
+    assert_equal game_tiles3_expected, subject.connections.sort
+    assert subject.open?
   end
 
   test "fully closed castle" do
-    assert_equal game_tiles4_expected, Connections
-      .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: current_tile_direction)
-      .connections
-      .sort
-
-    assert_not Connections
-      .new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: current_tile_direction)
-      .open?
+    subject = Connections.new(game_tiles: game_tiles4, current_tile: current_tile4, current_tile_direction: current_tile_direction)
+    assert_equal game_tiles4_expected, subject.connections.sort
+    assert_not subject.open?
   end
 
   private
