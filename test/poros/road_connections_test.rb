@@ -3,36 +3,38 @@ require 'test_helper'
 class RoadConnectionsTest < ActiveSupport::TestCase
 
   test "meeple composite keys" do
-    assert_equal connections1.sort, Connections
+    assert_equal connections1.sort, RoadConnections
       .new(game_tiles: game_tiles1, current_tile: current_tile1, current_tile_direction: "north")
       .connections
       .sort
 
-    subject = Connections.new(
+    subject = RoadConnections.new(
       game_tiles: game_tiles1,
       current_tile: current_tile1v2,
       current_tile_direction: "north"
     )
     assert_equal connections1v2.sort, subject.connections.sort
     assert subject.open?
+    assert_equal 10, subject.points
   end
 
 
   test "meeple composite keys with end tiles" do
-    assert_equal connections2.sort, Connections
+    assert_equal connections2.sort, RoadConnections
       .new(game_tiles: game_tiles2, current_tile: current_tile2, current_tile_direction: "south")
       .connections
       .sort
 
-    subject = Connections.new(
+    subject = RoadConnections.new(
       game_tiles: game_tiles2,
       current_tile: current_tile2v2,
       current_tile_direction: "west"
     )
     assert_equal connections2v2.sort, subject.connections.sort
     assert_not subject.open?
+    assert_equal 16, subject.points
 
-    subject = Connections.new(
+    subject = RoadConnections.new(
       game_tiles: game_tiles3,
       current_tile: current_tile3,
       current_tile_direction: "east"
@@ -40,7 +42,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
     assert_equal connections3.sort, subject.connections.sort
     assert_not subject.open?
 
-    assert_equal connections3v2.sort, Connections
+    assert_equal connections3v2.sort, RoadConnections
       .new(game_tiles: game_tiles3, current_tile: current_tile3v2, current_tile_direction: "west")
       .connections
       .sort
@@ -48,7 +50,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
   end
 
   test "meeple composite keys loop" do
-    subject = Connections.new(
+    subject = RoadConnections.new(
       game_tiles: game_tiles4,
       current_tile: current_tile4,
       current_tile_direction: "east"
@@ -59,7 +61,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
   end
 
   test "meeple composite keys loop with end road" do
-    subject = Connections.new(
+    subject = RoadConnections.new(
       game_tiles: game_tiles5,
       current_tile: current_tile5,
       current_tile_direction: "east"
