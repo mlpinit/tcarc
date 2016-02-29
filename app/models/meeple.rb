@@ -1,5 +1,5 @@
 class Meeple < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :game_player
   belongs_to :tile
   belongs_to :game
 

@@ -5,7 +5,7 @@ class MeepleTest < ActiveSupport::TestCase
   attr_reader :john, :game
 
   setup do
-    @john = users(:john)
+    @john = game_players(:one)
     @game = games(:one)
   end
 
