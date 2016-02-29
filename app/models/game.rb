@@ -6,4 +6,8 @@ class Game < ActiveRecord::Base
     tiles.order("created_at DESC").limit(1).first
   end
 
+  def connected_meeples(connections)
+    meeples.where("(tile_id, direction) IN #{connections}")
+  end
+
 end
