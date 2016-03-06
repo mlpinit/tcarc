@@ -74,6 +74,18 @@ class Connections
     game_tiles.find { |t| t.x == x && t.y == y }
   end
 
+  def connected_tiles
+    connections.map(&:first).map do |id|
+      game_tiles.find { |tile| tile.id == id }
+    end
+  end
+
+  def closed_connected_tiles
+    connected_tiles.select do |tile|
+      !tile.send("connected_#{type}")
+    end
+  end
+
   module SqlReady
     def sql_ready
       if self.present?
