@@ -15,7 +15,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
     )
     assert_equal connections1v2.sort, subject.connections.sort
     assert subject.open?
-    assert_equal 10, subject.points
+    assert_equal 5, subject.points
   end
 
 
@@ -32,7 +32,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
     )
     assert_equal connections2v2.sort, subject.connections.sort
     assert_not subject.open?
-    assert_equal 16, subject.points
+    assert_equal 9, subject.points
 
     subject = RoadConnections.new(
       game_tiles: game_tiles3,
@@ -57,6 +57,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
     )
 
     assert_equal connections4.sort, subject.connections.sort
+    assert_equal 4, subject.points
     assert_not subject.open?
   end
 
@@ -69,6 +70,7 @@ class RoadConnectionsTest < ActiveSupport::TestCase
 
     assert_equal connections5.sort, subject.connections.sort
     assert_not subject.open?
+    assert_equal 5, subject.points
   end
 
   private
