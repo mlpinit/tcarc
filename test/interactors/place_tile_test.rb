@@ -4,7 +4,7 @@ class PlaceTileTest < ActiveSupport::TestCase
 
   class AllowedTest < PlaceTileTest
 
-    test "#allowed? - wrong game" do
+    test "#allowed? - not yo game" do
       player = OpenStruct.new(game_id: 1)
       tile = OpenStruct.new(game_id: 2)
 
@@ -38,9 +38,6 @@ class PlaceTileTest < ActiveSupport::TestCase
       subject = PlaceTile.new(player: player, tile: tile)
       assert subject.allowed?
     end
-  end
-
-  class RunTest < PlaceTileTest
   end
 
 end
