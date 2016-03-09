@@ -1,5 +1,18 @@
 john:
+  id: 1
   username: "john"
   email: "john@test.com"
   # password digest form password: 1234acbd
+  password_digest: $2a$04$YiOTctYDJPF5PqlUmtvOKutLr2EtJztI4x5PKW3IoE8omMns6CVQS
+
+two:
+  id: 2
+  username: "two"
+  email: "two@test.com"
+  password_digest: $2a$04$YiOTctYDJPF5PqlUmtvOKutLr2EtJztI4x5PKW3IoE8omMns6CVQS
+
+three:
+  id: 3
+  username: "three"
+  email: "three@test.com"
   password_digest: $2a$04$YiOTctYDJPF5PqlUmtvOKutLr2EtJztI4x5PKW3IoE8omMns6CVQS

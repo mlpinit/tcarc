@@ -1,5 +1,5 @@
 class Tile < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :game_player
   belongs_to :game
   has_many :meeples
 

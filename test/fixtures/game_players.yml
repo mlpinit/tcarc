@@ -1,13 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   user_id: 1
   game_id: 1
-  next_game_player_id: 1
-  score: 1
+  next_game_player_id: 2
+  score: 0
 
 two:
-  user_id: 1
+  user_id: 2
   game_id: 1
   next_game_player_id: 1
-  score: 1
+  score: 0
+
+three:
+  user_id: 3
+  game_id: 2
+  next_game_player_id: 4
+  score: 0
