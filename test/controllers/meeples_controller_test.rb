@@ -42,6 +42,4 @@ class MeeplesControllerTest < ActionController::TestCase
     assert_response :bad_request
   end
 
-
-
 end
