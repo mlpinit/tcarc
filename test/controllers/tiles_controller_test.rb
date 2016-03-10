@@ -13,7 +13,7 @@ class TilesControllerTest < ActionController::TestCase
         game_player_id: 1, game_id: 1
       }
     }
-    process(:create, method: :post, params:  tile_params)
+    process(:create, method: :post, params: tile_params)
     assert_response :ok
   end
 
