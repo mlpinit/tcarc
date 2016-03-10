@@ -3,7 +3,7 @@ class TilesController < ApplicationController
   def create
     action = PlaceTile.new(player: current_game_player, tile: tile)
     if action.run
-      render plain: true, status: :ok
+      render plain: "OK", status: :ok
     else
       render nothing: true, status: :bad_request
     end
