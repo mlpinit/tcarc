@@ -15,7 +15,7 @@ class PlaceMeeple
   end
 
   def run
-    return unless allowed?
+    return false unless allowed?
     meeple.save!
     player.decrement(:remaining_meeples)
     true

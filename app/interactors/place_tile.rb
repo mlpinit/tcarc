@@ -15,8 +15,9 @@ class PlaceTile
   end
 
   def run
-    return unless allowed?
+    return false unless allowed?
     tile.save
+    true
   end
 
 end
