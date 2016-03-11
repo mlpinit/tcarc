@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   resources :tiles, only: :create
   resources :meeples, only: :create
 
+  resources :games, only: [] do
+    scope module: :games do
+      resources :rounds, only: :create
+    end
+  end
 
   root "home#index"
 end
