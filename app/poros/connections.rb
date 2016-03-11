@@ -14,7 +14,7 @@ class Connections
   end
 
   def open?
-    connections.find do |connection|
+    !!connections.find do |connection|
       tile = game_tiles.find { |t| t.id == connection.first }
       neighbour(tile.x, tile.y, connection.last).nil?
     end
