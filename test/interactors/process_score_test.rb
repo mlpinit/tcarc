@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class ProcessCastleScoreTileTest < ActiveSupport::TestCase
+class ProcessScoreTest < ActiveSupport::TestCase
 
   test "one player meeples" do
-    subject = ProcessCastleScore.new(meeples: meeples1, points: 4)
+    subject = ProcessScore.new(meeples: meeples1, points: 4)
 
     player1.expects(:increment).with(:remaining_meeples, 2)
     player1.expects(:increment).with(:score, 4)
@@ -14,7 +14,7 @@ class ProcessCastleScoreTileTest < ActiveSupport::TestCase
   end
 
   test "multiple players meeples" do
-    subject = ProcessCastleScore.new(meeples: meeples2, points: 6)
+    subject = ProcessScore.new(meeples: meeples2, points: 6)
 
     player1.expects(:increment).with(:remaining_meeples, 2)
     player1.expects(:increment).with(:score, 6)

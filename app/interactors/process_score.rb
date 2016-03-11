@@ -1,4 +1,4 @@
-class ProcessCastleScore
+class ProcessScore
   
   attr_reader :meeples, :points
 
