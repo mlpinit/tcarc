@@ -11,6 +11,10 @@ class Monestary
     points != 9
   end
 
+  def closed?
+    !open?
+  end
+
   def points
     @points ||= (game_tile_coordinates & neighbour_coordinates).count + 1
   end

@@ -7,6 +7,10 @@ class Tile < ActiveRecord::Base
   validates :north, :south, :west, :east, presence: true
   validates :game_id, presence: true
 
+  def self.with_monestaries
+    where(monestary: true)
+  end
+
   def start_tile
     neighbours = [:east, :west, :south, :north].map do |direction|
       send("#{direction}_neighbour")
