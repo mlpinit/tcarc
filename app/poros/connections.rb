@@ -20,6 +20,10 @@ class Connections
     end
   end
 
+  def closed?
+    !open?
+  end
+
   private
 
   def type
