@@ -1,7 +1,7 @@
 class Tile < ActiveRecord::Base
   belongs_to :game_player
   belongs_to :game
-  has_many :meeples
+  has_many :meeples, -> { where(archived: false) }
 
   validate :east_to_west, :west_to_east, :north_to_south, :south_to_north, :start_tile
   validates :north, :south, :west, :east, presence: true
