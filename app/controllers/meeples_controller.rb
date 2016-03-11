@@ -5,7 +5,7 @@ class MeeplesController < ApplicationController
     if action.run
       render plain: "OK", status: :ok
     else
-      render nothing: true, status: :bad_request
+      head :bad_request
     end
   end
 
