@@ -5,4 +5,6 @@ class GamePlayer < ActiveRecord::Base
   has_many :meeples, -> { where(archived: false) }
   has_one :next_game_player, class_name: "GamePlayer", foreign_key: :next_game_player_id
   has_many :tiles
+
+  enum invite: { pending: 0, accepted: 1 }
 end
