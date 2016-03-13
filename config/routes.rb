@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :create
   namespace :users do
-    get :search, to: "search#index", as: :search
+    get :search, to: "search#index", as: :search, defaults: { format: 'json' }
   end
 
   resources :sessions, only: :create

@@ -7,4 +7,6 @@ class GamePlayer < ActiveRecord::Base
   has_many :tiles
 
   enum invite: { pending: 0, accepted: 1 }
+
+  validates :game_id, uniqueness: { scope: :user_id }
 end

@@ -1,16 +1,16 @@
 <% @title = "New Game" %>
 
 <div class='well form-inline col-md-12'>
-  <%= form_tag :users_search, remote: true do %>
-    <div class="form-group">
-      <%= text_field_tag :query, nil, placeholder: :username, class: 'form-control' %>
-    </div>
-    <%= submit_tag "Add", class: 'btn btn btn-success' %>
-  <% end %>
+  <div class="form-group">
+    <%= text_field_tag :query, nil, placeholder: :username, class: 'form-control', id: 'users_search' %>
+    <ul id="users_search_results" class="list-unstyled">
+    </ul>
+  </div>
 </div>
 
 <div class='well form-horizontal col-md-12'>
   <%= form_for game do |f| %>
+    <div id="game_players_list"></div>
     <%= f.submit "Invite players", class: 'btn btn-large' %>
   <% end %>
 </div>
