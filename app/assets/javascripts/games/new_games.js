@@ -5,20 +5,21 @@ $(document).on('ready page:load', function () {
     ul.empty();
     var query = $(this).val();
     $.get("/users/search.json?query=" + query, function(data) {
+      var username, userId, usernameData, plus, li_html;
       for (i = 0; i < data.length; i++) {
-        var username = data[i][0];
-        var userId = data[i][1];
-        var userIdData = "data-user-id='" + userId + "'";
-        var usernameData = "data-username='" + username + "'";
-        var plus = "<span class='glyphicon glyphicon-plus pull-right add-game-player'></span>";
-        var li_html = "<li class='form-control users_search' " + userIdData + " " + usernameData + ">" + username + plus + "</li>";
+        username = data[i][0];
+        userId = data[i][1];
+        userIdData = "data-user-id='" + userId + "'";
+        usernameData = "data-username='" + username + "'";
+        plus = "<span class='glyphicon glyphicon-plus pull-right add-game-player'></span>";
+        li_html = "<li class='form-control users_search' " + userIdData + " " + usernameData + ">" + username + plus + "</li>";
         ul.append(li_html);
       }
       addGamePlayer();
     });
   });
 
-  function addGamePlayer() {
+  var addGamePlayer = function () {
     $("span.add-game-player").click(function() {
       var element = $(this).parent();
       var userId = element.data("user-id");
@@ -36,14 +37,14 @@ $(document).on('ready page:load', function () {
       var input = "<input " + css_class + " " + value_and_type + " " + name + " " + css_id + ">"
       var element = "<div>" + username + "</div>"
 
-      form.append(input);
       if (gamePlayerNotPresent(username)) {
+        form.append(input);
         game_players_list.append(element);
       }
     });
   }
 
-  function gamePlayerNotPresent(username) {
+  var gamePlayerNotPresent = function (username) {
     var bool = true;
     $("div#game_players_list").children().each(function() {
       var value = $(this).text();

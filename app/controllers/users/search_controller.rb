@@ -9,7 +9,7 @@ class Users::SearchController < ApplicationController
   private
 
   def users
-    User.username_search(params[:query].to_s, current_user.username)
+    User.username_search(params[:query], current_user.username)
   end
 
 end
