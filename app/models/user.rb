@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   def self.username_search(query, username)
     where("username LIKE ?", "%#{query}%")
       .where("username NOT LIKE ?", "%#{username}%")
+      .limit(5)
       .pluck(:username, :id)
   end
 
