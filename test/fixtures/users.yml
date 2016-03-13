@@ -16,3 +16,27 @@ three:
   username: "three"
   email: "three@test.com"
   password_digest: $2a$04$YiOTctYDJPF5PqlUmtvOKutLr2EtJztI4x5PKW3IoE8omMns6CVQS
+
+four:
+  id: 4
+  username: "four"
+  email: "four@test.com"
+  password_digest: $2a$04$YiOTctYDJPF5PqlUmtvOKutLr2EtJztI4x5PKW3IoE8omMns6CVQS
+
+five:
+  id: 5
+  username: "five"
+  email: "five@test.com"
+  password_digest: $2a$04$YiOTctYDJPF5PqlUmtvOKutLr2EtJztI4x5PKW3IoE8omMns6CVQS
+
+six:
+  id: 6
+  username: "six"
+  email: "six@test.com"
+  password_digest: $2a$04$yiotctydjpf5pqlumtvokutlr2etjzti4x5pkw3ioe8ommns6cvqs
+
+seven:
+  id: 7
+  username: "seven"
+  email: "seven@test.com"
+  password_digest: $2a$04$yiotctydjpf5pqlumtvokutlr2etjzti4x5pkw3ioe8ommns6cvqs
