@@ -1,0 +1,6 @@
+<ul class="game_players">
+<%= game.game_players.each do |game_player| %>
+  <li><%= game_player.user.username %> | <%= game_player.invite %></li>
+<% end %>
+</ul>
+

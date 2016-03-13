@@ -1,0 +1,16 @@
+<% @title = "New Game" %>
+
+<div class='well form-inline col-md-12'>
+  <%= form_tag :users_search, remote: true do %>
+    <div class="form-group">
+      <%= text_field_tag :query, nil, placeholder: :username, class: 'form-control' %>
+    </div>
+    <%= submit_tag "Search", class: 'btn btn btn-success' %>
+  <% end %>
+</div>
+
+<div class='well form-horizontal col-md-12'>
+  <%= form_for game do |f| %>
+    <%= f.submit "Invite players", class: 'btn btn-large' %>
+  <% end %>
+</div>
