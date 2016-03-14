@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   end
 
   root "home#index"
+
+  mount ActionCable.server => "/cable"
 end
