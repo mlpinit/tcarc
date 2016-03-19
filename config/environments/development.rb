@@ -40,5 +40,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Set Action Cable server url for consumer connection
-  config.action_cable.url = 'ws://localhost:28080'
+  # config.action_cable.url = 'ws://localhost:28080'
+
+  # Use an evented file watcher to asynchronously detect changes in source code,
+  # routes, locales, etc. This feature depends on the listen gem.
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end

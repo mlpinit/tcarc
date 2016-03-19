@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  helper_method :game
+  helper_method :game, :current_game_player
   attr_reader :game
 
   def new
@@ -28,7 +28,7 @@ class GamesController < ApplicationController
   end
 
   def current_game_player
-    @current_game_player = current_user.game_players.find_by(game_id: params[:id])
+    @current_game_player ||= current_user.game_players.find_by(game_id: params[:id])
   end
 
 end

@@ -1,0 +1,53 @@
+App.game = App.cable.subscriptions.create("GameChannel", {
+  connected: function() {
+    return setTimeout((function(_this) {
+      return function() {
+        _this.followCurrentGame();
+        return _this.installPageChangeCallback();
+      };
+    })(this), 1000);
+  },
+  disconnected: function() {},
+  received: function(data) {
+    var tr = $("tr#game_player_" + data["game_player_id"]);
+    tr.replaceWith(data["game_player"]);
+  },
+  accept: function(game_id) {
+    return this.perform('accept', {
+      game_id: game_id
+    });
+  },
+  decline: function(game_id) {
+    return this.perform('decline', {
+      game_id: game_id
+    });
+  },
+  followCurrentGame: function() {
+    var gameId;
+    if (gameId = $('section#game').data('game-id')) {
+      return this.perform('follow', {
+        game_id: gameId
+      });
+    } else {
+      return this.perform('unfollow');
+    }
+  },
+  installPageChangeCallback: function() {
+    if (!this.installedPageChangeCallback) {
+      this.installedPageChangeCallback = true;
+      return $(document).on('page:change', function() {
+        return App.game.followCurrentGame();
+      });
+    }
+  }
+});
+
+$(document).on('click', '[data-behavior=game_accept]', function(event) {
+  var gameId = $('section#game').data('game-id');
+  App.game.accept(gameId);
+});
+
+$(document).on('click', '[data-behavior=game_decline]', function(event) {
+  var gameId = $('section#game').data('game-id');
+  App.game.decline(gameId);
+});

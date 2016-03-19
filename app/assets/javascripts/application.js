@@ -15,6 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require channels
-//= require action_cable
 //= require_tree .
 //

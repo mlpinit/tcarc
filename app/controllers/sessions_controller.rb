@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      cookies.signed[:user_id] = user.id
       redirect_to root_path
     else
       flash[:error] = "Wrong password/email combination."

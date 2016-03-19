@@ -1,6 +1,23 @@
-<ul class="game_players">
-<% game.game_players.each do |game_player| %>
-  <li><%= game_player.user.username %> | <%= game_player.invite %></li>
-<% end %>
-</ul>
+<section id="game" data-channel="game" data-game-id="<%= game.id %>">
+  <table class='table'>
+    <thead>
+      <th>Username</th>
+      <th>Inivation status</th>
+    </thead>
+    <tbody>
+      <%= render game.game_players %>
+    </tbody>
+  </table>
 
+  <% if current_user != game.owner && current_game_player.invite == 'pending' %>
+    <form>
+      <input type='submit' data-behavior='game_accept' class='btn btn-success' value='Join Game'>
+      <input type='submit' data-behavior='game_decline' class='btn btn-danger' value='Decline'>
+    </form>
+  <% end %>
+
+  <% if current_user == game.owner %>
+    <%= link_to "Start Game", "#", class: "btn btn-success"%>
+  <% end %>
+
+</section>
