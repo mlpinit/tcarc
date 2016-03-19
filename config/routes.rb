@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :tiles, only: :create
   resources :meeples, only: :create
 
-  resources :games, only: [:new, :create, :show] do
+  resources :games, only: [:new, :create, :show, :index] do
     scope module: :games do
       resources :rounds, only: :create
     end

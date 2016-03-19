@@ -1,7 +1,11 @@
 class GamesController < ApplicationController
 
-  helper_method :game, :current_game_player
-  attr_reader :game
+  helper_method :game, :games, :current_game_player
+  attr_reader :game, :games
+
+  def index
+    @games = current_user.game_players.includes(:game).map(&:game)
+  end
 
   def new
     @game = current_user.games.new

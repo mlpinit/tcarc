@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to game.name, game_path(game) %></td>
+  <td><%= game.owner.username %></td>
+  <td><%= game.game_players.count %></td>
+  <td><%= game.started ? "Started" : "Preparing Game" %>
+  </td>
+</tr>
+
+
