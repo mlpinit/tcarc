@@ -9,6 +9,41 @@
 </head>
 <body>
 
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Carcassonne</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class='<%= 'active' if current_page?(root_path) %>'><a href="#">Home</a></li>
+        <li class='<%= 'active' if current_page?(games_path) %>'>
+          <%= link_to "Games", games_path %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li>
+            <%= link_to "account-path" do %>
+              <span class="glyphicon glyphicon-user"><%= current_user.username %></span>
+            <% end %>
+            </a>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to signin_path do %>
+              Sign In
+            <% end %>
+          </li>
+          <li>
+            <%= link_to signup_path do %>
+              Sign Up
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
     <div class="row">
       <%= yield %>
