@@ -26,7 +26,11 @@
             <%= link_to "account-path" do %>
               <span class="glyphicon glyphicon-user"><%= current_user.username %></span>
             <% end %>
-            </a>
+          </li>
+          <li>
+            <%= link_to signout_path, method: :delete do %>
+              Sign Out
+            <% end %>
           </li>
         <% else %>
           <li>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get :signin,        to: "sessions#new"
   get :signup,        to: "users#new"
+  delete :signout,    to: "sessions#destroy"
 
   resources :users, only: :create
   namespace :users do

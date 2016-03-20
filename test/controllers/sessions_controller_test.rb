@@ -29,4 +29,10 @@ class SessionsControllerTest < ActionController::TestCase
     assert render: :new
   end
 
+  test "signout" do
+    session[:user_id] = 1
+    process(:destroy, method: :delete)
+    assert_not session[:user_id]
+  end
+
 end
