@@ -13,6 +13,7 @@ class GamesController < ApplicationController
 
   def show
     @game = current_game_player.game
+    redirect_to game_board_path(game) if game.started
   end
 
   def create
