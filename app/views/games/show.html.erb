@@ -17,7 +17,9 @@
   <% end %>
 
   <% if current_user == game.owner %>
-    <%= link_to "Start Game", "#", class: "btn btn-success"%>
+    <form>
+      <input type='submit' data-behavior='game_start' class='btn btn-success' value='Start Game'>
+    </form>
   <% end %>
 
 </section>

@@ -9,8 +9,12 @@ App.game = App.cable.subscriptions.create("GameChannel", {
   },
   disconnected: function() {},
   received: function(data) {
-    var tr = $("tr#game_player_" + data["game_player_id"]);
-    tr.replaceWith(data["game_player"]);
+    if (data["location"]) {
+      window.location = data["location"];
+    } else {
+      var tr = $("tr#game_player_" + data["game_player_id"]);
+      tr.replaceWith(data["game_player"]);
+    }
   },
   accept: function(game_id) {
     return this.perform('accept', {
@@ -19,6 +23,11 @@ App.game = App.cable.subscriptions.create("GameChannel", {
   },
   decline: function(game_id) {
     return this.perform('decline', {
+      game_id: game_id
+    });
+  },
+  start: function(game_id) {
+    return this.perform('start', {
       game_id: game_id
     });
   },
@@ -42,12 +51,18 @@ App.game = App.cable.subscriptions.create("GameChannel", {
   }
 });
 
-$(document).on('click', '[data-behavior=game_accept]', function(event) {
+$(document).on('ready page:load', function () {
   var gameId = $('section#game').data('game-id');
-  App.game.accept(gameId);
-});
 
-$(document).on('click', '[data-behavior=game_decline]', function(event) {
-  var gameId = $('section#game').data('game-id');
-  App.game.decline(gameId);
+  $(document).on('click', '[data-behavior=game_accept]', function(event) {
+    App.game.accept(gameId);
+  });
+
+  $(document).on('click', '[data-behavior=game_decline]', function(event) {
+    App.game.decline(gameId);
+  });
+
+  $(document).on('click', '[data-behavior=game_start]', function(event) {
+    App.game.start(gameId);
+  });
 });

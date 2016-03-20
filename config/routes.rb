@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:new, :create, :show, :index] do
     scope module: :games do
+      resource :board, only: :show
       resources :rounds, only: :create
     end
   end

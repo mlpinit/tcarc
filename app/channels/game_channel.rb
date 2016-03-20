@@ -17,4 +17,13 @@ class GameChannel < ApplicationCable::Channel
     current_user.game_players.find_by(game_id: data["game_id"]).declined!
   end
 
+  def start(data)
+    game = current_user.games.find_by(id: data["game_id"])
+    game.update_attributes!(started: true)
+    ActionCable.server.broadcast(
+      "game_channel_#{game.id}",
+      location: Rails.application.routes.url_helpers.game_board_path(game.id)
+    )
+  end
+
 end
