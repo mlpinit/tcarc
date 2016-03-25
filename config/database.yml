@@ -5,8 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: famapp_development
+  database: tcarc_development
 
 test:
   <<: *default
-  database: famapp_test
+  database: tcarc_test

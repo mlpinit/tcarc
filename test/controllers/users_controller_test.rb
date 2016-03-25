@@ -18,7 +18,7 @@ class UsersControllerTest < ActionController::TestCase
   test "#create" do
     user_attributes = {
       "username"              => "John",
-      "email"                 => "john@famapp.com",
+      "email"                 => "john@tcarc.com",
       "password"              => "1234abcd",
       "password_confirmation" => "1234abcd"
     }
@@ -27,7 +27,7 @@ class UsersControllerTest < ActionController::TestCase
 
     user = User.last
     assert_equal "John", user.username
-    assert_equal "john@famapp.com", user.email
+    assert_equal "john@tcarc.com", user.email
     assert redirect: root_path
   end
 
