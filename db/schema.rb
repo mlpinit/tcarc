@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312191035) do
+ActiveRecord::Schema.define(version: 20160326012100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160312191035) do
     t.datetime "updated_at",                             null: false
     t.integer  "current_game_player_id"
     t.boolean  "started",                default: false
+    t.string   "tile_order"
   end
 
   create_table "meeples", force: :cascade do |t|
