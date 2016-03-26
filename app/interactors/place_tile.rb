@@ -17,6 +17,7 @@ class PlaceTile
   def run
     return false unless allowed?
     tile.save
+    tile.game.shift_tile_order!
     true
   end
 

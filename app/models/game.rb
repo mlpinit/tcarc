@@ -15,4 +15,9 @@ class Game < ActiveRecord::Base
     meeples.where("(tile_id, direction) IN #{connections}")
   end
 
+  def shift_tile_order!
+    self.tile_order = "#{tile_order[-1]},#{tile_order[0..-3]}"
+    save!
+  end
+
 end

@@ -16,6 +16,7 @@ class CreateGame
   def run
     return unless allowed?
     game.game_players.new(user: current_user, invite: "accepted")
+    game.tile_order = PreselectedTile.random_tile_order
     game.save!
     true
   end

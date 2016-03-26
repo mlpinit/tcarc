@@ -5,6 +5,7 @@ one:
   name: MyString
   owner_id: 1
   current_game_player_id: 1
+  tile_order: "-1,54,51,67,19,41,32,53,49"
 
 two:
   id: 2
