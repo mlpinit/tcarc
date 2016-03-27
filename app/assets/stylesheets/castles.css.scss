@@ -4,38 +4,68 @@
 	width: 30px;
   z-index: 5;
 }
-.castle-north {
+.castle-north, .castle-north-connected-road {
   @extend .castle-shared;
-  background-color: #21B51D;
 	border-left: 30px solid #21B51D;
 	border-right: 30px solid #21B51D;
 	border-bottom: 30px solid #21B51D;
 	border-top: 30px solid #B5651D;
 }
 
-.castle-south {
-  @extend .castle-shared;
+.castle-north {
   background-color: #21B51D;
+}
+
+.castle-north-connected-road {
+  background-color: white;
+}
+
+.castle-south, .castle-south-connected-road {
+  @extend .castle-shared;
 	border-left: 30px solid #21B51D;
 	border-right: 30px solid #21B51D;
 	border-top: 30px solid #21B51D;
 	border-bottom: 30px solid #B5651D;
 }
-.castle-west {
-  @extend .castle-shared;
+
+.castle-south {
   background-color: #21B51D;
+}
+
+.castle-south-connected-road {
+  background-color: white;
+}
+
+.castle-west, .castle-west-connected-road {
+  @extend .castle-shared;
 	border-top: 30px solid #21B51D;
 	border-right: 30px solid #21B51D;
 	border-bottom: 30px solid #21B51D;
 	border-left: 30px solid #B5651D;
 }
-.castle-east {
-  @extend .castle-shared;
+
+.castle-west {
   background-color: #21B51D;
+}
+
+.castle-west-connected-road {
+  background-color: white;
+}
+
+.castle-east, .castle-east-connected-road {
+  @extend .castle-shared;
 	border-left: 30px solid #21B51D;
 	border-top: 30px solid #21B51D;
 	border-bottom: 30px solid #21B51D;
 	border-right: 30px solid #B5651D;
+}
+
+.castle-east {
+  background-color: #21B51D;
+}
+
+.castle-east-connected-road {
+  background-color: white;
 }
 
 .castle-east-west-connected, .castle-north-south-connected, .castle-north-south-not-connected, .castle-east-west-not-connected {
@@ -54,24 +84,31 @@
   transform: rotate(90deg);
 }
 
-.castle-north-east-connected, .castle-north-west-connected, .castle-south-east-connected, .castle-south-west-connected {
+.castle-north-east-connected, .castle-north-west-connected, .castle-south-east-connected, .castle-south-west-connected, .castle-north-east-connected-road, .castle-north-west-connected-road, .castle-south-east-connected-road, .castle-south-west-connected-road {
   @extend .castle-shared;
-  background-color: #B5651D;
 	border-left: 30px solid #B5651D;
 	border-right: 30px solid #21B51D;
 	border-bottom: 30px solid #21B51D;
 	border-top: 30px solid #B5651D;
 }
 
-.castle-north-west-connected {
+.castle-north-east-connected, .castle-north-west-connected, .castle-south-east-connected, .castle-south-west-connected {
+  background-color: #B5651D;
+}
+
+ .castle-north-east-connected-road, .castle-north-west-connected-road, .castle-south-east-connected-road, .castle-south-west-connected-road {
+  background-color: white;
+}
+
+.castle-north-east-connected, .castle-north-east-connected-road {
   transform: rotate(90deg);
 }
 
-.castle-south-east-connected {
+.castle-south-east-connected, .castle-south-east-connected-road {
   transform: rotate(180deg);
 }
 
-.castle-south-west-connected {
+.castle-south-west-connected, .castle-south-west-connected-road  {
   transform: rotate(270deg);
 }
 

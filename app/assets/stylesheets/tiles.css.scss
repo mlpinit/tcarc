@@ -9,8 +9,7 @@
   position: relative;
 }
 
-.square {
-  background-color: white;
+.square, .square-not-connected {
   position: absolute;
 	height: 30px;
 	width: 30px;
@@ -20,3 +19,12 @@
 	border-top: 30px solid #21B51D;
   z-index: 5;
 }
+
+.square {
+  background-color: white;
+}
+
+.square-not-connected {
+  background-color: #21B51D;
+}
+

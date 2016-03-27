@@ -18,13 +18,13 @@
 
 .barricade-north-west-corner {
   @extend .barricade-shared;
-  left: 66px;
+  left: 4px;
   top: 4px;
 }
 
 .barricade-north-east-corner {
   @extend .barricade-shared;
-  left: 4px;
+  left: 66px;
   top: 4px;
 }
 
