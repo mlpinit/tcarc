@@ -1,0 +1,170 @@
+.castle-shared {
+  position: absolute;
+	height: 30px;
+	width: 30px;
+  z-index: 5;
+}
+.castle-north {
+  @extend .castle-shared;
+  background-color: #21B51D;
+	border-left: 30px solid #21B51D;
+	border-right: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-top: 30px solid #B5651D;
+}
+
+.castle-south {
+  @extend .castle-shared;
+  background-color: #21B51D;
+	border-left: 30px solid #21B51D;
+	border-right: 30px solid #21B51D;
+	border-top: 30px solid #21B51D;
+	border-bottom: 30px solid #B5651D;
+}
+.castle-west {
+  @extend .castle-shared;
+  background-color: #21B51D;
+	border-top: 30px solid #21B51D;
+	border-right: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-left: 30px solid #B5651D;
+}
+.castle-east {
+  @extend .castle-shared;
+  background-color: #21B51D;
+	border-left: 30px solid #21B51D;
+	border-top: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-right: 30px solid #B5651D;
+}
+
+.castle-east-west-connected, .castle-north-south-connected, .castle-north-south-not-connected, .castle-east-west-not-connected {
+  @extend .castle-shared;
+	border-left: 30px solid #B5651D;
+	border-top: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-right: 30px solid #B5651D;
+}
+
+.castle-east-west-connected, .castle-north-south-connected {
+  background-color: #B5651D;
+}
+
+.castle-north-south-connected {
+  transform: rotate(90deg);
+}
+
+.castle-north-east-connected, .castle-north-west-connected, .castle-south-east-connected, .castle-south-west-connected {
+  @extend .castle-shared;
+  background-color: #B5651D;
+	border-left: 30px solid #B5651D;
+	border-right: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-top: 30px solid #B5651D;
+}
+
+.castle-north-west-connected {
+  transform: rotate(90deg);
+}
+
+.castle-south-east-connected {
+  transform: rotate(180deg);
+}
+
+.castle-south-west-connected {
+  transform: rotate(270deg);
+}
+
+.castle-north-south-not-connected, .castle-east-west-not-connected {
+  background-color: #21B51D;
+}
+
+.castle-east-west-not-connected {
+  transform: rotate(90deg);
+}
+
+.castle-neighbours-not-connected-shared {
+  @extend .castle-shared;
+	border-left: 30px solid #21B51D;
+	border-right: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-top: 30px solid #21B51D;
+}
+
+.castle-neighbours-not-connected-shared-no-road {
+  @extend .castle-neighbours-not-connected-shared;
+  background-color: #21B51D;
+}
+
+.castle-neighbours-not-connected-shared-with-road {
+  @extend .castle-neighbours-not-connected-shared;
+  background-color: white;
+}
+
+.castle-north-small {
+  @extend .castle-shared;
+  left: 10px;
+	border-top: 20px solid #B5651D;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+  z-index: 9;
+}
+
+.castle-west-small {
+  @extend .castle-shared;
+  top: 10px;
+  left: 40px;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-right: 20px solid #B5651D;
+  z-index: 9;
+}
+
+.castle-south-small {
+  @extend .castle-shared;
+  top: 40px;
+  left: 10px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #B5651D;
+  z-index: 9;
+}
+
+.castle-east-small {
+  @extend .castle-shared;
+  top: 10px;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid #B5651D;
+  z-index: 9;
+}
+
+.castle-west-north-east, .castle-north-east-south, .castle-east-south-west, .castle-south-west-north {
+  @extend .castle-shared;
+  background-color: #B5651D;
+	border-left: 30px solid #B5651D;
+	border-right: 30px solid #B5651D;
+	border-bottom: 30px solid #21B51D;
+	border-top: 30px solid #B5651D;
+}
+
+.castle-north-east-south {
+  transform: rotate(90deg);
+}
+
+.castle-east-south-west {
+  transform: rotate(180deg);
+}
+
+.castle-south-west-north {
+  transform: rotate(270deg);
+}
+
+.castle-all-sides {
+  @extend .castle-shared;
+  background-color: #B5651D;
+	border-left: 30px solid #B5651D;
+	border-right: 30px solid #B5651D;
+	border-bottom: 30px solid #B5651D;
+	border-top: 30px solid #B5651D;
+}

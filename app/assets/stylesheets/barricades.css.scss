@@ -1,0 +1,41 @@
+.barricade-shared {
+  background-color: #B5651D;
+  z-index: 7;
+	height: 0px;
+	width: 0px;
+  position: absolute;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 14px solid #5176ED;
+	border-bottom: 0px solid transparent;
+}
+
+.barricade-center{
+  @extend .barricade-shared;
+  left: 35px;
+  top: 38px;
+}
+
+.barricade-north-west-corner {
+  @extend .barricade-shared;
+  left: 66px;
+  top: 4px;
+}
+
+.barricade-north-east-corner {
+  @extend .barricade-shared;
+  left: 4px;
+  top: 4px;
+}
+
+.barricade-south-east-corner {
+  @extend .barricade-shared;
+  left: 66px;
+  top: 68px;
+}
+
+.barricade-south-west-corner {
+  @extend .barricade-shared;
+  left: 4px;
+  top: 68px;
+}
