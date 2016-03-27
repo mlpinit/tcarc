@@ -16,15 +16,15 @@ class FinishGameRound
     return false unless allowed?
     process_castles_score
     process_roads_score
-    process_monestary_score
+    process_monastery_score
     game.current_game_player = current_game_player.next_game_player
     true
   end
 
   private
 
-  def process_monestary_score
-    ProcessMonestaryScore.new(game_tiles: game_tiles).run
+  def process_monastery_score
+    ProcessMonasteryScore.new(game_tiles: game_tiles).run
   end
 
   def process_roads_score

@@ -17,7 +17,7 @@ class TilesController < ApplicationController
 
   def permitted_params
     params.require(:tile).permit(
-      :x, :y, :north, :south, :west, :east, :monestary, :connected_road,
+      :x, :y, :north, :south, :west, :east, :monastery, :connected_road,
       :connected_castle, :start, :game_player_id, :game_id
     )
   end

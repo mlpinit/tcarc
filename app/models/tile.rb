@@ -8,7 +8,7 @@ class Tile < ActiveRecord::Base
   validates :game_id, presence: true
 
   def self.with_monestaries
-    where(monestary: true)
+    where(monastery: true)
   end
 
   def start_tile

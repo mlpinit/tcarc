@@ -50,8 +50,8 @@ class FinishGameRoundTest < ActiveSupport::TestCase
       RoadConnections.any_instance.expects(:points).once
       ProcessScore.any_instance.expects(:run).twice
 
-      # monestary
-      ProcessMonestaryScore.any_instance.expects(:run)
+      # monastery
+      ProcessMonasteryScore.any_instance.expects(:run)
       
       # update next game player
       game.expects(:current_game_player).returns(current_game_player)
@@ -87,8 +87,8 @@ class FinishGameRoundTest < ActiveSupport::TestCase
       RoadConnections.any_instance.expects(:points).twice
       ProcessScore.any_instance.expects(:run).twice
 
-      # monestary
-      ProcessMonestaryScore.any_instance.expects(:run)
+      # monastery
+      ProcessMonasteryScore.any_instance.expects(:run)
 
       # update next game player
       game.expects(:current_game_player).returns(current_game_player)

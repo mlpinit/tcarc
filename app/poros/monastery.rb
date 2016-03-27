@@ -1,4 +1,4 @@
-class Monestary
+class Monastery
 
   attr_reader :game_tiles, :current_tile
 

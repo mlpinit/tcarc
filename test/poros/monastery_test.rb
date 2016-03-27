@@ -1,17 +1,17 @@
 require 'test_helper'
 
-class MonestaryTest < ActiveSupport::TestCase
+class MonasteryTest < ActiveSupport::TestCase
 
-  test 'closed monestary' do
-    monestary = Monestary.new(game_tiles: game_tiles1, current_tile: current_tile)
-    assert_equal 9, monestary.points
-    assert_not monestary.open?
+  test 'closed monastery' do
+    monastery = Monastery.new(game_tiles: game_tiles1, current_tile: current_tile)
+    assert_equal 9, monastery.points
+    assert_not monastery.open?
   end
 
-  test 'open monestary' do
-    monestary = Monestary.new(game_tiles: game_tiles2, current_tile: current_tile)
-    assert_equal 6, monestary.points
-    assert monestary.open?
+  test 'open monastery' do
+    monastery = Monastery.new(game_tiles: game_tiles2, current_tile: current_tile)
+    assert_equal 6, monastery.points
+    assert monastery.open?
   end
 
   private

@@ -9,7 +9,7 @@ class TilesControllerTest < ActionController::TestCase
     tile_params = {
       tile: {
         x: 0, y: -1, north: "road", south: "road", west: "road", east: "road",
-        monestary: false, connected_road: true, connected_castle: false, start: false,
+        monastery: false, connected_road: true, connected_castle: false, start: false,
         game_player_id: 1, game_id: 1
       }
     }
@@ -26,7 +26,7 @@ class TilesControllerTest < ActionController::TestCase
     tile_params = {
       tile: {
         x: 0, y: -1, north: "road", south: "road", west: "road", east: "road",
-        monestary: false, connected_road: true, connected_castle: false, start: false,
+        monastery: false, connected_road: true, connected_castle: false, start: false,
         game_player_id: 3, game_id: 2
       }
     }

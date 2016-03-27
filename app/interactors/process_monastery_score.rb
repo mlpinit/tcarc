@@ -1,4 +1,4 @@
-class ProcessMonestaryScore
+class ProcessMonasteryScore
 
   attr_reader :game_tiles
 
@@ -8,10 +8,10 @@ class ProcessMonestaryScore
 
   def run
     game_tiles.with_monestaries.each do |tile|
-      monestary = Monestary.new(game_tiles: game_tiles, current_tile: tile)
-      if monestary.closed?
+      monastery = Monastery.new(game_tiles: game_tiles, current_tile: tile)
+      if monastery.closed?
         player = tile.game_player
-        player.increment(:score, monestary.points)
+        player.increment(:score, monastery.points)
         player.increment(:remaining_meeples)
       end
     end

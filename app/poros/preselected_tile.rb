@@ -26,7 +26,7 @@ class PreselectedTile
   end
 
   ATTRIBUTES = %w{
-    id north south west east monestary
+    id north south west east monastery
     barricade connected_castle connected_road
   }
 
