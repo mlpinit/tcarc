@@ -1,0 +1,93 @@
+.monastery-roof-shared {
+  background-color: #21B51D;
+  z-index: 6;
+	height: 0px;
+	width: 0px;
+  position: absolute;
+}
+
+.monastery-body-shared {
+  background-color: #B51D21;
+  position: absolute;
+  z-index: 6;
+}
+
+.monastery-roof-0 {
+  @extend .monastery-roof-shared;
+  left: 30px;
+  top: 30px;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid #B51D21;
+	border-top: 0px solid transparent;
+}
+
+.monastery-roof-90 {
+  @extend .monastery-roof-shared;
+  left: 45px;
+  top: 30px;
+	border-left: 15px solid #B51D21;
+	border-right: 0px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-top: 15px solid transparent;
+}
+.monastery-roof-180 {
+  @extend .monastery-roof-shared;
+  left: 30px;
+  top: 45px;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 0px solid transparent;
+	border-top: 15px solid #B51D21;
+}
+.monastery-roof-270 {
+  @extend .monastery-roof-shared;
+  left: 30px;
+  top: 30px;
+	border-left: 0px solid transparent;
+	border-right: 15px solid #B51D21;
+	border-bottom: 15px solid transparent;
+	border-top: 15px solid transparent;
+}
+
+.monastery-body-0 {
+  @extend .monastery-body-shared;
+  left:30px;
+  top: 45px;
+	height: 12px;
+	width: 20px;
+  border-left: 5px solid #21B51D;
+	border-right: 5px solid #21B51D;
+  border-bottom: 3px solid white;
+}
+
+.monastery-body-90 {
+  @extend .monastery-body-shared;
+  left:30px;
+  top: 30px;
+	height: 20px;
+	width: 12px;
+  border-left: 3px solid white;
+	border-top: 5px solid #21B51D;
+  border-bottom: 5px solid #21B51D;
+}
+.monastery-body-180 {
+  @extend .monastery-body-shared;
+  left:30px;
+  top: 30px;
+	height: 12px;
+	width: 20px;
+  border-left: 5px solid #21B51D;
+	border-right: 5px solid #21B51D;
+  border-top: 3px solid white;
+}
+.monastery-body-270 {
+  @extend .monastery-body-shared;
+  left:45px;
+  top: 30px;
+	height: 20px;
+	width: 12px;
+  border-right: 3px solid white;
+	border-bottom: 5px solid #21B51D;
+  border-top: 5px solid #21B51D;
+}

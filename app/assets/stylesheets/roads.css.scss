@@ -1,0 +1,34 @@
+.road {
+  position: absolute;
+  background-color: white;
+  z-index: 10;
+}
+.road-west {
+  @extend .road;
+  top: 43px;
+  height: 6px;
+  width: 30px;
+}
+
+.road-north {
+  @extend .road;
+  left: 43px;
+  height: 30px;
+  width: 6px;
+}
+
+.road-east {
+  @extend .road;
+  left: 60px;
+  top: 43px;
+  height: 6px;
+  width: 30px;
+}
+
+.road-south {
+  @extend .road;
+  top: 60px;
+  left: 43px;
+  height: 30px;
+  width: 6px;
+}

@@ -1,0 +1,22 @@
+.board {
+  font-size: 0;
+}
+
+.tile {
+  height: 90px;
+	width: 90px;
+  display: inline-block;
+  position: relative;
+}
+
+.square {
+  background-color: white;
+  position: absolute;
+	height: 30px;
+	width: 30px;
+	border-left: 30px solid #21B51D;
+	border-right: 30px solid #21B51D;
+	border-bottom: 30px solid #21B51D;
+	border-top: 30px solid #21B51D;
+  z-index: 5;
+}
