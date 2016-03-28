@@ -115,16 +115,16 @@
     "id": 11, "monastery": false, "north": "castle", "south": "castle", "west": "castle",
     "east": "castle", "barricade": true, "connected_castle": true, "connected_road": false
   },
-
-
-
-
-
-
   {
-    "id": 29, "monastery": false, "north": "castle", "south": "castle", "west": "castle",
-    "east": "road", "barricade": false, "connected_castle": true, "connected_road": false
+    "id": 12, "monastery": false, "north": "castle", "south": "road", "west": "castle",
+    "east": "castle", "barricade": false, "connected_castle": true, "connected_road": false
   },
+
+
+
+
+
+
   {
     "id": 30, "monastery": false, "north": "castle", "south": "castle", "west": "castle",
     "east": "road", "barricade": true, "connected_castle": true, "connected_road": false
