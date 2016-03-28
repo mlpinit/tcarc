@@ -48,6 +48,21 @@
     "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
   },
   {
+    "id": 4, "monastery": false, "north": "castle", "south": "field", "west": "castle",
+    "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
+  },
+  {
+    "id": 4, "monastery": false, "north": "castle", "south": "field", "west": "castle",
+    "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
+  },
+  {
+    "id": 4, "monastery": false, "north": "castle", "south": "field", "west": "castle",
+    "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
+  },
+
+
+
+  {
     "id": 10, "monastery": false, "north": "castle", "south": "castle", "west": "field",
     "east": "field", "barricade": true, "connected_castle": true, "connected_road": false
   },
@@ -62,18 +77,6 @@
   {
     "id": 13, "monastery": false, "north": "castle", "south": "field", "west": "castle",
     "east": "field", "barricade": true, "connected_castle": true, "connected_road": false
-  },
-  {
-    "id": 14, "monastery": false, "north": "castle", "south": "field", "west": "castle",
-    "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
-  },
-  {
-    "id": 15, "monastery": false, "north": "castle", "south": "field", "west": "castle",
-    "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
-  },
-  {
-    "id": 16, "monastery": false, "north": "castle", "south": "field", "west": "castle",
-    "east": "field", "barricade": false, "connected_castle": true, "connected_road": false
   },
   {
     "id": 17, "monastery": false, "north": "castle", "south": "castle", "west": "field",
