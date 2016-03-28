@@ -283,13 +283,8 @@
     "id": 22, "monastery": false, "north": "castle", "south": "road", "west": "road",
     "east": "road", "barricade": false, "connected_castle": false, "connected_road": false
   },
-
-
-
-
-
   {
-    "id": 71, "monastery": false, "north": "road", "south": "road", "west": "road",
+    "id": 23, "monastery": false, "north": "road", "south": "road", "west": "road",
     "east": "road", "barricade": false, "connected_castle": false, "connected_road": false
   }
 ]
