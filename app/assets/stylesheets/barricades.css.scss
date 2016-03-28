@@ -1,12 +1,12 @@
 .barricade-shared {
-  background-color: #B5651D;
+  background-color: $castle;
   z-index: 7;
 	height: 0px;
 	width: 0px;
   position: absolute;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 14px solid #5176ED;
+	border-top: 14px solid $barricade;
 	border-bottom: 0px solid transparent;
 }
 

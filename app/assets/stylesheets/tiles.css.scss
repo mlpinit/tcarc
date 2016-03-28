@@ -13,18 +13,18 @@
   position: absolute;
 	height: 30px;
 	width: 30px;
-	border-left: 30px solid #21B51D;
-	border-right: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-top: 30px solid #21B51D;
+	border-left: 30px solid $field;
+	border-right: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-top: 30px solid $field;
   z-index: 5;
 }
 
 .square {
-  background-color: white;
+  background-color: $road;
 }
 
 .square-not-connected {
-  background-color: #21B51D;
+  background-color: $field;
 }
 

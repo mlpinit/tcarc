@@ -6,78 +6,78 @@
 }
 .castle-north, .castle-north-connected-road {
   @extend .castle-shared;
-	border-left: 30px solid #21B51D;
-	border-right: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-top: 30px solid #B5651D;
+	border-left: 30px solid $field;
+	border-right: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-top: 30px solid $castle;
 }
 
 .castle-north {
-  background-color: #21B51D;
+  background-color: $field;
 }
 
 .castle-north-connected-road {
-  background-color: white;
+  background-color: $road;
 }
 
 .castle-south, .castle-south-connected-road {
   @extend .castle-shared;
-	border-left: 30px solid #21B51D;
-	border-right: 30px solid #21B51D;
-	border-top: 30px solid #21B51D;
-	border-bottom: 30px solid #B5651D;
+	border-left: 30px solid $field;
+	border-right: 30px solid $field;
+	border-top: 30px solid $field;
+	border-bottom: 30px solid $castle;
 }
 
 .castle-south {
-  background-color: #21B51D;
+  background-color: $field;
 }
 
 .castle-south-connected-road {
-  background-color: white;
+  background-color: $road;
 }
 
 .castle-west, .castle-west-connected-road {
   @extend .castle-shared;
-	border-top: 30px solid #21B51D;
-	border-right: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-left: 30px solid #B5651D;
+	border-top: 30px solid $field;
+	border-right: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-left: 30px solid $castle;
 }
 
 .castle-west {
-  background-color: #21B51D;
+  background-color: $field;
 }
 
 .castle-west-connected-road {
-  background-color: white;
+  background-color: $road;
 }
 
 .castle-east, .castle-east-connected-road {
   @extend .castle-shared;
-	border-left: 30px solid #21B51D;
-	border-top: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-right: 30px solid #B5651D;
+	border-left: 30px solid $field;
+	border-top: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-right: 30px solid $castle;
 }
 
 .castle-east {
-  background-color: #21B51D;
+  background-color: $field;
 }
 
 .castle-east-connected-road {
-  background-color: white;
+  background-color: $road;
 }
 
 .castle-east-west-connected, .castle-north-south-connected, .castle-north-south-not-connected, .castle-east-west-not-connected {
   @extend .castle-shared;
-	border-left: 30px solid #B5651D;
-	border-top: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-right: 30px solid #B5651D;
+	border-left: 30px solid $castle;
+	border-top: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-right: 30px solid $castle;
 }
 
 .castle-east-west-connected, .castle-north-south-connected {
-  background-color: #B5651D;
+  background-color: $castle;
 }
 
 .castle-north-south-connected {
@@ -86,18 +86,18 @@
 
 .castle-north-east-connected, .castle-north-west-connected, .castle-south-east-connected, .castle-south-west-connected, .castle-north-east-connected-road, .castle-north-west-connected-road, .castle-south-east-connected-road, .castle-south-west-connected-road {
   @extend .castle-shared;
-	border-left: 30px solid #B5651D;
-	border-right: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-top: 30px solid #B5651D;
+	border-left: 30px solid $castle;
+	border-right: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-top: 30px solid $castle;
 }
 
 .castle-north-east-connected, .castle-north-west-connected, .castle-south-east-connected, .castle-south-west-connected {
-  background-color: #B5651D;
+  background-color: $castle;
 }
 
  .castle-north-east-connected-road, .castle-north-west-connected-road, .castle-south-east-connected-road, .castle-south-west-connected-road {
-  background-color: white;
+  background-color: $road;
 }
 
 .castle-north-east-connected, .castle-north-east-connected-road {
@@ -113,7 +113,7 @@
 }
 
 .castle-north-south-not-connected, .castle-east-west-not-connected {
-  background-color: #21B51D;
+  background-color: $field;
 }
 
 .castle-east-west-not-connected {
@@ -122,26 +122,26 @@
 
 .castle-neighbours-not-connected-shared {
   @extend .castle-shared;
-	border-left: 30px solid #21B51D;
-	border-right: 30px solid #21B51D;
-	border-bottom: 30px solid #21B51D;
-	border-top: 30px solid #21B51D;
+	border-left: 30px solid $field;
+	border-right: 30px solid $field;
+	border-bottom: 30px solid $field;
+	border-top: 30px solid $field;
 }
 
 .castle-neighbours-not-connected-shared-no-road {
   @extend .castle-neighbours-not-connected-shared;
-  background-color: #21B51D;
+  background-color: $field;
 }
 
 .castle-neighbours-not-connected-shared-with-road {
   @extend .castle-neighbours-not-connected-shared;
-  background-color: white;
+  background-color: $road;
 }
 
 .castle-north-small {
   @extend .castle-shared;
   left: 10px;
-	border-top: 20px solid #B5651D;
+	border-top: 20px solid $castle;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
   z-index: 9;
@@ -153,7 +153,7 @@
   left: 40px;
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
-	border-right: 20px solid #B5651D;
+	border-right: 20px solid $castle;
   z-index: 9;
 }
 
@@ -163,7 +163,7 @@
   left: 10px;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
-	border-bottom: 20px solid #B5651D;
+	border-bottom: 20px solid $castle;
   z-index: 9;
 }
 
@@ -172,17 +172,17 @@
   top: 10px;
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
-	border-left: 20px solid #B5651D;
+	border-left: 20px solid $castle;
   z-index: 9;
 }
 
 .castle-west-north-east, .castle-north-east-south, .castle-east-south-west, .castle-south-west-north {
   @extend .castle-shared;
-  background-color: #B5651D;
-	border-left: 30px solid #B5651D;
-	border-right: 30px solid #B5651D;
-	border-bottom: 30px solid #21B51D;
-	border-top: 30px solid #B5651D;
+  background-color: $castle;
+	border-left: 30px solid $castle;
+	border-right: 30px solid $castle;
+	border-bottom: 30px solid $field;
+	border-top: 30px solid $castle;
 }
 
 .castle-north-east-south {
@@ -199,9 +199,9 @@
 
 .castle-all-sides {
   @extend .castle-shared;
-  background-color: #B5651D;
-	border-left: 30px solid #B5651D;
-	border-right: 30px solid #B5651D;
-	border-bottom: 30px solid #B5651D;
-	border-top: 30px solid #B5651D;
+  background-color: $castle;
+	border-left: 30px solid $castle;
+	border-right: 30px solid $castle;
+	border-bottom: 30px solid $castle;
+	border-top: 30px solid $castle;
 }

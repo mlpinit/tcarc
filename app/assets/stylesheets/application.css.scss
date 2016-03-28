@@ -1,6 +1,13 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
+
+$field: #21B51D; // green
+$castle: #B5651D; // brown
+$road: white;
+$monastery: #B51D21; // red
+$barricade: #5176ED; // bluish
+
 @import "monasteries";
 @import "roads";
 @import "tiles";
@@ -10,3 +17,4 @@
 li.users_search {
   display: block !important;
 }
+
