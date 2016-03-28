@@ -231,35 +231,35 @@
     "id": 18, "monastery": false, "north": "field", "south": "road", "west": "road",
     "east": "field", "barricade": false, "connected_castle": false, "connected_road": true
   },
-
-
-
-
-
   {
-    "id": 58, "monastery": false, "north": "castle", "south": "road", "west": "road",
+    "id": 19, "monastery": false, "north": "castle", "south": "road", "west": "road",
     "east": "field", "barricade": false, "connected_castle": false, "connected_road": true
   },
   {
-    "id": 59, "monastery": false, "north": "castle", "south": "road", "west": "road",
+    "id": 19, "monastery": false, "north": "castle", "south": "road", "west": "road",
     "east": "field", "barricade": false, "connected_castle": false, "connected_road": true
   },
   {
-    "id": 60, "monastery": false, "north": "castle", "south": "road", "west": "road",
+    "id": 19, "monastery": false, "north": "castle", "south": "road", "west": "road",
     "east": "field", "barricade": false, "connected_castle": false, "connected_road": true
   },
   {
-    "id": 61, "monastery": false, "north": "castle", "south": "road", "west": "field",
+    "id": 20, "monastery": false, "north": "castle", "south": "road", "west": "field",
     "east": "road", "barricade": false, "connected_castle": false, "connected_road": true
   },
   {
-    "id": 62, "monastery": false, "north": "castle", "south": "road", "west": "field",
+    "id": 20, "monastery": false, "north": "castle", "south": "road", "west": "field",
     "east": "road", "barricade": false, "connected_castle": false, "connected_road": true
   },
   {
-    "id": 63, "monastery": false, "north": "castle", "south": "road", "west": "field",
+    "id": 20, "monastery": false, "north": "castle", "south": "road", "west": "field",
     "east": "road", "barricade": false, "connected_castle": false, "connected_road": true
   },
+
+
+
+
+
   {
     "id": 64, "monastery": false, "north": "field", "south": "road", "west": "road",
     "east": "road", "barricade": false, "connected_castle": false, "connected_road": false
