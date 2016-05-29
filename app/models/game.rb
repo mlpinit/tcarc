@@ -20,4 +20,8 @@ class Game < ActiveRecord::Base
     save!
   end
 
+  def remaining_tiles
+    PreselectedTile.remaining_tiles(tile_order)
+  end
+
 end
